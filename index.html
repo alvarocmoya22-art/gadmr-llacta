@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es-EC">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLACTA · Observatorio Urbano de Riobamba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header>
+  <div class="cab">
+    <div class="marca">
+      <h1>LLACTA</h1>
+      <span class="sub">Observatorio Urbano de Riobamba</span>
+    </div>
+    <p class="lema">
+      <em>Llakta</em>, en kichwa, nombra a la vez al pueblo y a la gente del
+      pueblo. Este observatorio mide el territorio por la gente que vive en él:
+      no cuántos parques hay, sino a cuánta gente llegan.
+    </p>
+    <div class="sello" id="sello"></div>
+  </div>
+</header>
+
+<div class="envoltura">
+
+  <!-- ====================================================== el titular -->
+  <div class="titular" style="margin-top:38px">
+    <div>
+      <p class="grande" id="titular-cifra">—</p>
+      <p id="titular-texto"></p>
+    </div>
+    <div>
+      <p class="prosa" style="margin:0" id="nota-vista"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================= el mapa -->
+  <p class="figura" id="figura"></p>
+  <div class="lienzo">
+    <div class="mandos" id="mandos" role="group" aria-label="Qué se pinta en el mapa"></div>
+    <div id="caja-mapa" style="position:relative"></div>
+    <div class="leyenda" id="leyenda"></div>
+  </div>
+  <p class="cita" style="margin-top:10px">
+    Dibujado de <code>manzanas.geojson</code> y de <code>red.json</code>,
+    simplificados a 6 y 8 m. No hay biblioteca de mapas ni mosaicos de nadie:
+    son trazos SVG generados con los datos. La red vial es de OpenStreetMap,
+    ODbL.
+  </p>
+
+  <h2 class="gr-eyebrow">Los tres, sobre la misma ciudad</h2>
+  <div class="paneles" id="paneles"></div>
+  <p class="cita" style="margin-top:10px">
+    <b>Figura 3</b> · Las mismas 3.756 manzanas, tres veces. Alternando entre
+    indicadores no se compara: se recuerda, y mal.
+  </p>
+
+  <!-- ==================================================== el hallazgo -->
+  <h2 class="gr-eyebrow">Lo primero que hay que decir</h2>
+  <div class="prosa">
+    <div class="gr-nota gr-nota--aviso">
+      <span class="cabeza" data-ico="aviso"></span>
+      <strong>De los 1.083 equipamientos del inventario municipal, 1.064 están
+      en las cinco parroquias urbanas.</strong> En las doce rurales hay 19. Y de
+      los 242 equipamientos de nivel barrial —los que miden proximidad—,
+      <strong>240 son urbanos y 2 son rurales</strong>.
+    </div>
+    <p>
+      Por eso nueve parroquias aparecen abajo como <span class="sinv">sin
+      inventario</span> y no como «0 %». <strong>No sabemos que en Calpi no haya
+      una escuela: sabemos que nadie fue a registrarla.</strong> Publicar un cero
+      ahí sería acusar a un territorio de una carencia que en realidad es
+      nuestra.
+    </p>
+    <p>
+      Ese hueco es el indicador número ocho del observatorio —la cobertura del
+      propio levantamiento— asomando antes de estar construido, y es la razón de
+      que la cuarta ventana exista.
+    </p>
+  </div>
+
+  <!-- ================================================== por parroquia -->
+  <h2 class="gr-eyebrow">Las 17 parroquias</h2>
+  <div class="gr-tabla">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Parroquia</th>
+          <th scope="col" style="text-align:right">Habitantes<br>en manzana</th>
+          <th scope="col" style="text-align:right">Equip.</th>
+          <th scope="col" id="th-1"></th>
+          <th scope="col" id="th-2"></th>
+          <th scope="col" id="th-3"></th>
+        </tr>
+      </thead>
+      <tbody id="filas-par"></tbody>
+    </table>
+  </div>
+  <p class="cita" style="margin-top:10px">
+    <span class="sinv">sin inventario</span> · ni un equipamiento de ese tipo
+    dentro de la parroquia, y nadie alcanzado: no se puede distinguir de que no
+    se haya levantado. &nbsp;·&nbsp; <span class="vecina">cifra en gris</span> ·
+    la cobertura llega desde la parroquia vecina, porque el radio no se detiene
+    en un límite administrativo.
+  </p>
+
+  <!-- ================================================= las tres cifras -->
+  <h2 class="gr-eyebrow">Los tres indicadores, en el cantón</h2>
+  <div class="tarjetas" id="tarjetas"></div>
+
+  <!-- ==================================================== los objetivos -->
+  <h2 class="gr-eyebrow">Para qué existe este observatorio</h2>
+  <div class="objetivos">
+    <div class="objetivo"><span class="ico-caja" data-ico="gente"></span><span class="num">01</span><p>
+      <strong>Medir el territorio por la gente.</strong> No hectáreas ni
+      kilómetros: cuántas personas alcanza cada cosa que el municipio hace, y
+      cuántas se quedan fuera.</p></div>
+    <div class="objetivo"><span class="ico-caja" data-ico="serie"></span><span class="num">02</span><p>
+      <strong>Que la cifra se pueda comparar el año que viene.</strong> Cada dato
+      sale con su fecha, su ámbito y su método, y el método con su versión.</p></div>
+    <div class="objetivo"><span class="ico-caja" data-ico="hueco"></span><span class="num">03</span><p>
+      <strong>Publicar también dónde no sabemos.</strong> Un observatorio que
+      esconde sus huecos pide que se le crea; este los enseña y los pone
+      primero.</p></div>
+    <div class="objetivo"><span class="ico-caja" data-ico="rehacer"></span><span class="num">04</span><p>
+      <strong>Que cualquiera pueda rehacer la cuenta.</strong> Las capas se
+      descargan de la Mapoteca y la cifra se reproduce en QGIS.</p></div>
+  </div>
+
+  <!-- ============================================ las cuatro ventanas -->
+  <h2 class="gr-eyebrow">Las cuatro ventanas</h2>
+  <div class="ventanas">
+    <a class="ventana ventana--1"
+       href="https://alvarocmoya22-art.github.io/gadmr-visor-territorio/">
+      <h3><span class="ico-caja" data-ico="visor"></span>Visor <span class="flecha">→</span></h3>
+      <p>Ver el territorio. Las capas sobre el mapa, las isócronas a pie por la
+         calle real y la edificación en 3D.</p>
+      <div class="pie">Ver · publicado</div>
+    </a>
+    <a class="ventana ventana--2"
+       href="https://alvarocmoya22-art.github.io/gadmr-chaski/">
+      <h3><span class="ico-caja" data-ico="chaski"></span>CHASKI <span class="flecha">→</span></h3>
+      <p>Analizar y decidir. Un SIG en el navegador con veinte herramientas. Es
+         quien calcula estos indicadores.</p>
+      <div class="pie">Preparar · analizar · contar</div>
+    </a>
+    <a class="ventana ventana--3" href="mapoteca.html">
+      <h3><span class="ico-caja" data-ico="mapoteca"></span>Mapoteca <span class="flecha">→</span></h3>
+      <p>Descargar. Cada capa con su ficha: registros, campos, peso, fecha y
+         licencia.</p>
+      <div class="pie" id="pie-mapoteca">El catálogo</div>
+    </a>
+    <div class="ventana ventana--4" aria-disabled="true">
+      <h3><span class="ico-caja" data-ico="levantamiento"></span>Levantamiento <span class="gr-chip gr-chip--aviso">Todavía no</span></h3>
+      <p>Verificar qué se recoge en campo, quién, cuándo y qué no cuadra. Es la
+         que cerraría el hueco de arriba.</p>
+      <div class="pie">Necesita la base de datos: con lectura en vivo no se
+         puede decir cuánto avanzó esta semana.</div>
+    </div>
+  </div>
+
+  <!-- ====================================================== el método -->
+  <h2 class="gr-eyebrow">Cómo se calculó, y cuándo no hay que creerle</h2>
+  <div class="prosa">
+    <div class="gr-nota gr-nota--info">
+      <strong>El radio no lo pone esta página.</strong> Sale de la tabla 3 del
+      artículo 178 del Código Urbano de Riobamba, y depende de la
+      <em>tipología</em> del equipamiento —barrial, zonal o cantonal—, no de su
+      uso. El parque barrial tiene 400 m de área de influencia y el zonal 3.000.
+      Aquí se mide el nivel barrial, que es el de proximidad.
+    </div>
+
+    <h3>El método</h3>
+    <p>
+      Se dibuja el área de influencia de cada equipamiento, <strong>se unen todas
+      antes de medir</strong> y cada manzana aporta la parte de su población
+      proporcional a la superficie que le queda cubierta: una manzana de 80
+      habitantes cubierta a medias aporta 40. Se unen porque se pisan casi
+      siempre, y sumando los solapes una manzana saldría cubierta al 180 %.
+    </p>
+
+    <h3>Lo que estas cifras no saben</h3>
+    <div class="gr-nota gr-nota--aviso">
+      <strong>Se mide en línea recta, no por la calle.</strong> La distancia real
+      caminando siempre es mayor, así que la cifra es optimista. Y Riobamba está
+      a 2.750 m y sube: la misma distancia cuesta arriba no se camina igual.
+    </div>
+    <div class="gr-nota gr-nota--aviso">
+      <strong>Supone la población repartida por igual dentro de cada manzana.</strong>
+      Razonable a esa escala, cada vez menos según la pieza crece.
+    </div>
+    <div class="gr-nota gr-nota--aviso">
+      <strong>La cartografía de manzanas del INEC no tiene precisión métrica</strong>
+      —el propio INEC lo advierte—. Vale para repartir población; las superficies
+      que salen de ella son orden de magnitud.
+    </div>
+    <div class="gr-nota gr-nota--aviso">
+      <strong>Salud son seis equipamientos barriales en todo el cantón.</strong>
+      Hay que revisar la clasificación: casi todo lo de salud está registrado
+      como zonal, y lo zonal se mide a 2.000 m, no a 800.
+    </div>
+    <div class="gr-nota">
+      <strong>El denominador son 200.179 habitantes, no 260.882.</strong> Los que
+      viven dentro de alguna manzana del INEC, el 76,7 % del cantón. El 23 %
+      restante es población rural dispersa que no está en ninguna manzana:
+      <strong>este observatorio todavía no la mide.</strong>
+    </div>
+  </div>
+
+  <h2 class="gr-eyebrow">De dónde salen los datos</h2>
+  <div class="prosa">
+    <ul id="fuentes"></ul>
+    <p class="cita">
+      Lo derivado de OpenStreetMap se distribuye bajo ODbL. La capa de sectores
+      censales del INEC no se publica: lo que aquí se usa es un agregado derivado.
+      Del catastro no sale el nombre del propietario.
+    </p>
+  </div>
+
+  <footer id="pie"></footer>
+</div>
+
+<script src="datos/indicadores.js"></script>
+<script src="datos/escalas.js"></script>
+<script src="datos/capas.js"></script>
+<script src="datos/mapa.js"></script>
+<script src="datos/red.js"></script>
+<script src="comun.js"></script>
+<script src="iconos.js"></script>
+<script src="mapa.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Ajustes locales del editor
+.claude/
+
+# El encargo interno. No se publica de momento: describe como se trabaja,
+# los pendientes y lo que no se toca sin permiso. Para publicarlo, basta
+# quitar esta linea.
+PROMPT.md

@@ -1,0 +1,413 @@
+/* Generado por scripts/mapoteca.py. No editar a mano. */
+window.LLACTA_CAPAS = {
+  "generado": "2026-11-04",
+  "origen_publicado": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos",
+  "capas": [
+    {
+      "archivo": "barrios.geojson",
+      "nombre": "Barrios",
+      "nota": "212 barrios urbanos, con habitantes y viviendas del Censo 2022",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 212,
+      "formas": [
+        "MultiPolygon",
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "area_ha_geom",
+        "catastro_2014",
+        "nombre",
+        "numero"
+      ],
+      "detalle": null,
+      "bytes": 124209,
+      "modificado": "2026-09-30",
+      "origen": "GADM Riobamba · INEC",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/barrios.geojson",
+      "error": null
+    },
+    {
+      "archivo": "calles.json",
+      "nombre": "Calles",
+      "nota": null,
+      "en_chaski": false,
+      "auxiliar": true,
+      "registros": null,
+      "formas": [],
+      "campos": [
+        "calles",
+        "generado"
+      ],
+      "detalle": {
+        "calles": 1017
+      },
+      "bytes": 159724,
+      "modificado": "2026-09-14",
+      "origen": "OpenStreetMap",
+      "licencia": "ODbL",
+      "licencia_por_verificar": true,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/calles.json",
+      "error": null
+    },
+    {
+      "archivo": "catastro.geojson",
+      "nombre": "Catastro",
+      "nota": "41.681 predios con clave catastral y superficie",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 41681,
+      "formas": [
+        "MultiPolygon",
+        "Polygon"
+      ],
+      "campos": [
+        "area",
+        "claves",
+        "estado",
+        "tipo_catas"
+      ],
+      "detalle": null,
+      "bytes": 14995340,
+      "modificado": "2026-10-05",
+      "origen": "GADM Riobamba",
+      "licencia": "Municipal · sin propietario",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/catastro.geojson",
+      "error": null
+    },
+    {
+      "archivo": "clasificacion_suelo.geojson",
+      "nombre": "Clasificación del suelo",
+      "nota": "Lo urbano y lo rural del cantón, con habitantes y viviendas",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 41,
+      "formas": [
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "clase",
+        "densidad_hab_km2",
+        "parroquia",
+        "poblacion",
+        "viviendas"
+      ],
+      "detalle": null,
+      "bytes": 261490,
+      "modificado": "2026-10-30",
+      "origen": "GADM Riobamba · INEC",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/clasificacion_suelo.geojson",
+      "error": null
+    },
+    {
+      "archivo": "edificios.geojson",
+      "nombre": "Edificación",
+      "nota": "6.039 huellas de edificio con su altura",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 6039,
+      "formas": [
+        "Polygon"
+      ],
+      "campos": [
+        "altura",
+        "clase",
+        "medido"
+      ],
+      "detalle": null,
+      "bytes": 1601417,
+      "modificado": "2026-10-01",
+      "origen": "OpenStreetMap",
+      "licencia": "ODbL",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/edificios.geojson",
+      "error": null
+    },
+    {
+      "archivo": "equipamientos.geojson",
+      "nombre": "Equipamientos",
+      "nota": "1.083 equipamientos con su tipo y estado",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 1083,
+      "formas": [
+        "Point"
+      ],
+      "campos": [
+        "elemento",
+        "estado",
+        "gestion",
+        "id",
+        "nombre",
+        "observaciones",
+        "parroquia",
+        "tipo",
+        "tipologia"
+      ],
+      "detalle": null,
+      "bytes": 429872,
+      "modificado": "2026-09-30",
+      "origen": "GADM Riobamba",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/equipamientos.geojson",
+      "error": null
+    },
+    {
+      "archivo": "limite_urbano.geojson",
+      "nombre": "Límite urbano",
+      "nota": "La ciudad y las 13 cabeceras de las parroquias rurales",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 14,
+      "formas": [
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "clase",
+        "parroquia"
+      ],
+      "detalle": null,
+      "bytes": 28729,
+      "modificado": "2026-10-23",
+      "origen": "GADM Riobamba",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/limite_urbano.geojson",
+      "error": null
+    },
+    {
+      "archivo": "manzanas.geojson",
+      "nombre": "Manzanas",
+      "nota": "3.757 manzanas del INEC, con habitantes y viviendas del Censo 2022",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 3757,
+      "formas": [
+        "MultiPolygon"
+      ],
+      "campos": [
+        "codigo",
+        "densidad_hab_km2",
+        "parroquia_cod",
+        "poblacion",
+        "viviendas"
+      ],
+      "detalle": null,
+      "bytes": 2048808,
+      "modificado": "2026-10-30",
+      "origen": "INEC · Censo 2022",
+      "licencia": "Uso estadístico",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/manzanas.geojson",
+      "error": null
+    },
+    {
+      "archivo": "parroquias.geojson",
+      "nombre": "Parroquias",
+      "nota": null,
+      "en_chaski": false,
+      "auxiliar": false,
+      "registros": 5,
+      "formas": [
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "clave",
+        "nombre"
+      ],
+      "detalle": null,
+      "bytes": 19964,
+      "modificado": "2026-09-30",
+      "origen": "GADM Riobamba",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/parroquias.geojson",
+      "error": null
+    },
+    {
+      "archivo": "parroquias_canton.geojson",
+      "nombre": "Parroquias",
+      "nota": "17 del cantón, con habitantes y viviendas del Censo 2022",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 17,
+      "formas": [
+        "MultiPolygon",
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "clave",
+        "densidad_hab_km2",
+        "nombre",
+        "poblacion",
+        "tipo",
+        "viviendas"
+      ],
+      "detalle": null,
+      "bytes": 230847,
+      "modificado": "2026-10-30",
+      "origen": "GADM Riobamba · INEC",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/parroquias_canton.geojson",
+      "error": null
+    },
+    {
+      "archivo": "plataformas.geojson",
+      "nombre": "Plataformas",
+      "nota": "18 plataformas del casco, con habitantes y viviendas del Censo 2022",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 18,
+      "formas": [
+        "Polygon"
+      ],
+      "campos": [
+        "area_ha",
+        "area_ha_geom",
+        "clave",
+        "nombre",
+        "numero",
+        "rotulo_lat",
+        "rotulo_lon"
+      ],
+      "detalle": null,
+      "bytes": 37482,
+      "modificado": "2026-09-30",
+      "origen": "GADM Riobamba · INEC",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/plataformas.geojson",
+      "error": null
+    },
+    {
+      "archivo": "poblacion.json",
+      "nombre": "Poblacion",
+      "nota": null,
+      "en_chaski": false,
+      "auxiliar": true,
+      "registros": null,
+      "formas": [],
+      "campos": [
+        "barrios",
+        "canton",
+        "fuente",
+        "metodo",
+        "plataformas"
+      ],
+      "detalle": {
+        "canton": 2,
+        "barrios": 209,
+        "plataformas": 18
+      },
+      "bytes": 18068,
+      "modificado": "2026-10-05",
+      "origen": "INEC · Censo 2022",
+      "licencia": "Derivado agregado",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/poblacion.json",
+      "error": null
+    },
+    {
+      "archivo": "proyectos.geojson",
+      "nombre": "Proyectos 2026",
+      "nota": "41 proyectos con monto, estado y tipología",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": 41,
+      "formas": [
+        "Point"
+      ],
+      "campos": [
+        "aporta",
+        "barrio",
+        "categoria",
+        "escala",
+        "estado",
+        "icono",
+        "item",
+        "monto",
+        "nota",
+        "parroquia",
+        "plataforma",
+        "proyecto",
+        "sitio",
+        "tipologia",
+        "uso"
+      ],
+      "detalle": null,
+      "bytes": 21499,
+      "modificado": "2026-10-01",
+      "origen": "GADM Riobamba",
+      "licencia": "Municipal",
+      "licencia_por_verificar": false,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/proyectos.geojson",
+      "error": null
+    },
+    {
+      "archivo": "red.json",
+      "nombre": "Vialidad",
+      "nota": "17.636 tramos de la red vial completa, 1.931 km",
+      "en_chaski": true,
+      "auxiliar": false,
+      "registros": null,
+      "formas": [],
+      "campos": [
+        "aristas",
+        "caja",
+        "fuente",
+        "nodos"
+      ],
+      "detalle": {
+        "caja": 4,
+        "nodos": 12609,
+        "aristas": 17636
+      },
+      "bytes": 2062475,
+      "modificado": "2026-10-15",
+      "origen": "OpenStreetMap",
+      "licencia": "ODbL",
+      "licencia_por_verificar": true,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/red.json",
+      "error": null
+    },
+    {
+      "archivo": "red_vial.geojson",
+      "nombre": "Red vial",
+      "nota": null,
+      "en_chaski": false,
+      "auxiliar": false,
+      "registros": 1284,
+      "formas": [
+        "LineString",
+        "MultiLineString"
+      ],
+      "campos": [
+        "km",
+        "nombre",
+        "parroquia",
+        "rodadura",
+        "tipo"
+      ],
+      "detalle": null,
+      "bytes": 649776,
+      "modificado": "2026-10-23",
+      "origen": "OpenStreetMap",
+      "licencia": "ODbL",
+      "licencia_por_verificar": true,
+      "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/red_vial.geojson",
+      "error": null
+    }
+  ]
+};

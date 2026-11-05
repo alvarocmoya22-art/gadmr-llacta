@@ -1,0 +1,497 @@
+/* ---------------------------------------------------------------------------
+   LLACTA · sistema de diseño del GADM Riobamba
+   Tokens con prefijo --gr-. El tema oscuro se redefine dos veces a propósito:
+   por preferencia del sistema y por elección explícita. Todo color nace en
+   :root, nunca solo dentro de un bloque de tema.
+--------------------------------------------------------------------------- */
+:root{
+  --gr-azul-500:#0F4C81; --gr-azul-700:#0A3860; --gr-azul-100:#E4EDF6;
+  --gr-ok:#1B6046; --gr-aviso:#7A5200; --gr-error:#A8231C; --gr-info:#0F4C81;
+  --gr-fondo:#EEF1F4; --gr-superficie:#FFFFFF;
+  --gr-tinta:#0F1922; --gr-tinta-2:#3C4A57; --gr-tinta-3:#66757F;
+  --gr-linea:#D3DBE2; --gr-linea-fuerte:#B4C0CA;
+  --gr-s1:#2C74B0; --gr-s2:#D1732B; --gr-s3:#1F9070; --gr-s4:#8A5AD6;
+  --gr-vacio:#D3DBE2;
+  --ui:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --prosa:'IBM Plex Serif',Georgia,'Times New Roman',serif;
+  --dato:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --gr-azul-100:#16293C;
+  --gr-ok:#7DCCAA; --gr-aviso:#E8B75B; --gr-error:#FF9A90; --gr-info:#74B2E6;
+  --gr-fondo:#0B131B; --gr-superficie:#131E28;
+  --gr-tinta:#E7EEF4; --gr-tinta-2:#B3C1CD; --gr-tinta-3:#8496A4;
+  --gr-linea:#2A3945; --gr-linea-fuerte:#3B4C5A;
+  --gr-s1:#4E95D2; --gr-s2:#D07B33; --gr-s3:#35A67F; --gr-s4:#9E77DC;
+  --gr-vacio:#2A3945;
+}}
+:root[data-theme="dark"]{
+  --gr-azul-100:#16293C;
+  --gr-ok:#7DCCAA; --gr-aviso:#E8B75B; --gr-error:#FF9A90; --gr-info:#74B2E6;
+  --gr-fondo:#0B131B; --gr-superficie:#131E28;
+  --gr-tinta:#E7EEF4; --gr-tinta-2:#B3C1CD; --gr-tinta-3:#8496A4;
+  --gr-linea:#2A3945; --gr-linea-fuerte:#3B4C5A;
+  --gr-s1:#4E95D2; --gr-s2:#D07B33; --gr-s3:#35A67F; --gr-s4:#9E77DC;
+  --gr-vacio:#2A3945;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--gr-fondo); color:var(--gr-tinta);
+  font-family:var(--ui); font-size:16px; line-height:1.5;
+}
+.envoltura{max-width:1060px; margin:0 auto; padding:0 16px 64px}
+
+/* ------------------------------------------------------------- cabecera */
+header{border-bottom:1px solid var(--gr-linea); background:var(--gr-superficie)}
+.cab{max-width:1060px; margin:0 auto; padding:26px 16px 22px}
+.marca{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.marca h1,.marca .vuelta{
+  font-size:clamp(1.8rem,6vw,2.5rem); font-weight:700; margin:0;
+  letter-spacing:-.02em; color:var(--gr-azul-500); text-decoration:none;
+}
+.marca .sub{font-size:.95rem; color:var(--gr-tinta-2); font-weight:600}
+.lema{
+  font-family:var(--prosa); color:var(--gr-tinta-2);
+  margin:14px 0 0; max-width:74ch; font-size:1.02rem;
+}
+.sello{
+  margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+}
+.migas{
+  font-family:var(--dato); font-size:.78rem; color:var(--gr-tinta-3);
+  margin:0 0 4px;
+}
+.migas a{color:var(--gr-azul-500)}
+
+/* --------------------------------------------------------- componentes */
+.gr-eyebrow{
+  font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gr-tinta-3); display:flex; align-items:center; gap:10px;
+  margin:44px 0 16px;
+}
+.gr-eyebrow::after{content:""; flex:1; height:1px; background:var(--gr-linea)}
+.gr-chip{
+  display:inline-flex; align-items:center; gap:6px; padding:3px 9px;
+  border-radius:4px; font-family:var(--dato); font-size:.74rem; font-weight:600;
+  border:1px solid var(--gr-linea-fuerte); color:var(--gr-tinta-2);
+  background:var(--gr-superficie); white-space:nowrap;
+}
+.gr-chip--info{border-color:var(--gr-info); color:var(--gr-info); background:var(--gr-azul-100)}
+.gr-chip--aviso{border-color:var(--gr-aviso); color:var(--gr-aviso)}
+.gr-chip--ok{border-color:var(--gr-ok); color:var(--gr-ok)}
+.gr-nota{
+  border:1px solid var(--gr-linea); border-left:4px solid var(--gr-linea-fuerte);
+  background:var(--gr-superficie); border-radius:4px; padding:14px 16px;
+  font-family:var(--prosa); color:var(--gr-tinta-2); max-width:74ch;
+}
+.gr-nota--aviso{border-left-color:var(--gr-aviso)}
+.gr-nota--info{border-left-color:var(--gr-info)}
+.gr-nota strong{color:var(--gr-tinta); font-family:var(--ui); font-weight:600}
+.gr-nota + .gr-nota{margin-top:12px}
+
+/* ----------------------------------------------------- las cuatro ventanas
+   Son la interfaz, no un menú: cada una dice qué hace, qué sostiene del
+   observatorio y si está lista. La que no existe se ve que no existe. */
+.ventanas{display:grid; gap:14px; grid-template-columns:1fr}
+@media (min-width:680px){.ventanas{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.ventanas{grid-template-columns:repeat(4,1fr)}}
+.ventana{
+  display:flex; flex-direction:column; gap:10px; min-height:220px;
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-top:3px solid var(--gr-linea-fuerte);
+  border-radius:6px; padding:18px; text-decoration:none; color:inherit;
+}
+a.ventana:hover{border-color:var(--gr-azul-500); background:var(--gr-azul-100)}
+.ventana--1{border-top-color:var(--gr-s1)}
+.ventana--2{border-top-color:var(--gr-s2)}
+.ventana--3{border-top-color:var(--gr-s3)}
+.ventana--4{border-top-color:var(--gr-s4)}
+.ventana[aria-disabled="true"]{opacity:.72; border-style:dashed}
+.ventana h3{
+  margin:0; font-size:1.18rem; font-weight:700; letter-spacing:-.01em;
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+}
+.ventana p{margin:0; font-family:var(--prosa); font-size:.92rem; color:var(--gr-tinta-2)}
+.ventana .pie{
+  margin-top:auto; padding-top:10px; border-top:1px solid var(--gr-linea);
+  font-family:var(--dato); font-size:.74rem; color:var(--gr-tinta-3);
+}
+.ventana .flecha{font-weight:700; color:var(--gr-azul-500)}
+
+/* ------------------------------------------------------- los indicadores */
+.tarjetas{display:grid; gap:16px; grid-template-columns:1fr}
+@media (min-width:760px){.tarjetas{grid-template-columns:repeat(3,1fr)}}
+.ind{
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-radius:6px; padding:20px; display:flex; flex-direction:column; gap:14px;
+}
+.ind h3{margin:0; font-size:1.02rem; font-weight:600; line-height:1.3; color:var(--gr-tinta)}
+.cifra{display:flex; align-items:baseline; gap:4px; margin:0}
+.cifra b{
+  font-family:var(--dato); font-weight:600; font-size:3rem; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.03em;
+}
+.cifra span{font-family:var(--dato); font-size:1.2rem; color:var(--gr-tinta-2)}
+.ind--1 .cifra b{color:var(--gr-s1)}
+.ind--2 .cifra b{color:var(--gr-s2)}
+.ind--3 .cifra b{color:var(--gr-s3)}
+.gente{
+  font-family:var(--dato); font-size:.82rem; color:var(--gr-tinta-2);
+  font-variant-numeric:tabular-nums; margin:4px 0 0;
+}
+.gente b{color:var(--gr-tinta); font-weight:600}
+.barra{height:10px; border-radius:4px; background:var(--gr-vacio); overflow:hidden}
+.barra i{display:block; height:100%; border-radius:4px}
+.ind--1 .barra i{background:var(--gr-s1)}
+.ind--2 .barra i{background:var(--gr-s2)}
+.ind--3 .barra i{background:var(--gr-s3)}
+.ficha{
+  margin:0; padding-top:12px; border-top:1px solid var(--gr-linea);
+  display:grid; grid-template-columns:auto 1fr; gap:4px 12px; font-size:.8rem;
+}
+.ficha dt{color:var(--gr-tinta-3); font-weight:600}
+.ficha dd{
+  margin:0; font-family:var(--dato); color:var(--gr-tinta-2);
+  font-variant-numeric:tabular-nums;
+}
+.cita{font-family:var(--prosa); font-size:.78rem; color:var(--gr-tinta-3); margin:0; line-height:1.45}
+
+/* -------------------------------------------------------------- tablas */
+.gr-tabla{overflow-x:auto; border:1px solid var(--gr-linea); border-radius:4px; background:var(--gr-superficie)}
+table{border-collapse:collapse; width:100%; min-width:620px; font-size:.86rem}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--gr-linea); vertical-align:top}
+th{
+  font-size:.72rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--gr-tinta-3); font-weight:700; background:var(--gr-fondo);
+  white-space:nowrap;
+}
+td.n{font-family:var(--dato); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+td.m{font-family:var(--dato); font-size:.8rem}
+tbody tr:last-child td{border-bottom:none}
+.campos{color:var(--gr-tinta-3); font-size:.74rem; display:block; margin-top:3px; line-height:1.4}
+.gr-btn{
+  display:inline-block; padding:5px 11px; border-radius:4px;
+  background:var(--gr-azul-500); color:#fff; text-decoration:none;
+  font-size:.76rem; font-weight:600; white-space:nowrap;
+}
+.gr-btn:hover{background:var(--gr-azul-700)}
+.gr-btn--secundario{background:transparent; color:var(--gr-azul-500); border:1px solid var(--gr-azul-500)}
+
+.prosa{font-family:var(--prosa); color:var(--gr-tinta-2); max-width:74ch}
+.prosa h3{font-family:var(--ui); font-size:1rem; color:var(--gr-tinta); margin:22px 0 8px}
+.prosa code{font-family:var(--dato); font-size:.86em; background:var(--gr-azul-100); padding:1px 5px; border-radius:3px; color:var(--gr-tinta)}
+.prosa ul{padding-left:20px}
+.prosa li{margin:6px 0}
+footer{
+  margin-top:52px; padding-top:20px; border-top:1px solid var(--gr-linea);
+  font-family:var(--dato); font-size:.76rem; color:var(--gr-tinta-3);
+}
+a{color:var(--gr-azul-500)}
+:where(a,button,[tabindex]):focus-visible{
+  outline:3px solid var(--gr-azul-500); outline-offset:2px; border-radius:4px;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+/* ---------------------------------------------------------------------------
+   EL MAPA
+   3.757 trazos SVG generados por scripts/escalas.py. No hay biblioteca de
+   mapas ni mosaicos: la ciudad no se mueve y el dibujo pesa lo que pesa.
+   El color es la rampa secuencial del sistema; lo no cubierto NO es el tono
+   más claro de la rampa, es un gris aparte, porque «sin cobertura» no es
+   «poca cobertura».
+--------------------------------------------------------------------------- */
+:root{
+  --gr-sec-0:#DCE9F4; --gr-sec-1:#B3CFE7; --gr-sec-2:#7FAED6;
+  --gr-sec-3:#4A88BE; --gr-sec-4:#1F5F94; --gr-sec-5:#0A3860;
+  --gr-nada:#C8D1D9; --gr-borde-mapa:#8496A4;
+}
+/* En tema oscuro la rampa se invierte en luminosidad, no en tono.
+   Sobre fondo claro, «mas cobertura» es «mas oscuro»; sobre fondo oscuro eso
+   deja a la manzana con menos cobertura brillando mas que ninguna, que es
+   justo lo contrario de lo que el mapa quiere decir. Mismo azul, el brillo
+   siguiendo a la magnitud. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --gr-sec-0:#1B3047; --gr-sec-1:#24496E; --gr-sec-2:#2F6798;
+  --gr-sec-3:#4189C4; --gr-sec-4:#6FAEE0; --gr-sec-5:#A9D2F2;
+  --gr-nada:#3A4048; --gr-borde-mapa:#6E8090;
+}}
+:root[data-theme="dark"]{
+  --gr-sec-0:#1B3047; --gr-sec-1:#24496E; --gr-sec-2:#2F6798;
+  --gr-sec-3:#4189C4; --gr-sec-4:#6FAEE0; --gr-sec-5:#A9D2F2;
+  --gr-nada:#3A4048; --gr-borde-mapa:#6E8090;
+}
+
+/* «Sin cobertura» lleva trama ademas de color: el sistema dice que nada
+   depende solo del color, y aqui ademas no es un valor bajo de la escala
+   sino otra cosa. La trama lo saca de la rampa a la vista. */
+.leyenda i.rayada{
+  background-image:repeating-linear-gradient(45deg,
+    rgba(255,255,255,.55) 0 1px, transparent 1px 4px);
+}
+
+.lienzo{
+  position:relative; background:var(--gr-superficie);
+  border:1px solid var(--gr-linea); border-radius:6px; overflow:hidden;
+}
+/* Solo los dos mapas, no «cualquier svg dentro del lienzo»: los iconos de
+   las pastillas viven ahí dentro y con `width:100%` salían del tamaño de una
+   tarjeta. */
+#svg-mapa, #svg-red{display:block; width:100%; height:auto; background:var(--gr-fondo)}
+.mz{stroke:none; shape-rendering:geometricPrecision}
+.mz:hover{stroke:var(--gr-tinta); stroke-width:3; paint-order:stroke}
+.par{fill:none; stroke:var(--gr-borde-mapa); stroke-width:2; pointer-events:none; opacity:.85}
+
+.mandos{
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+  padding:14px 16px; border-bottom:1px solid var(--gr-linea);
+  background:var(--gr-superficie);
+}
+.mandos .sep{flex:1}
+.pastilla{
+  font-family:var(--ui); font-size:.82rem; font-weight:600; cursor:pointer;
+  padding:7px 13px; min-height:38px; border-radius:4px;
+  border:1px solid var(--gr-linea-fuerte); background:transparent;
+  color:var(--gr-tinta-2);
+}
+.pastilla:hover{border-color:var(--gr-azul-500); color:var(--gr-azul-500)}
+.pastilla[aria-pressed="true"]{
+  background:var(--gr-azul-500); border-color:var(--gr-azul-500); color:#fff;
+}
+
+.leyenda{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  padding:12px 16px; border-top:1px solid var(--gr-linea);
+  font-family:var(--dato); font-size:.74rem; color:var(--gr-tinta-2);
+}
+.leyenda .tramo{display:flex; align-items:center; gap:6px}
+.leyenda i{width:16px; height:12px; border-radius:2px; display:block}
+
+.globo{
+  position:absolute; pointer-events:none; z-index:5; max-width:230px;
+  background:var(--gr-superficie); border:1px solid var(--gr-linea-fuerte);
+  border-radius:6px; padding:9px 11px; font-size:.78rem; line-height:1.45;
+  box-shadow:0 6px 20px rgba(0,0,0,.18); display:none;
+}
+.globo b{font-family:var(--dato); font-variant-numeric:tabular-nums}
+.globo .donde{font-weight:700; display:block; margin-bottom:2px}
+
+/* --------------------------------------------------------- el titular */
+.titular{
+  display:grid; gap:18px; align-items:center; margin:0 0 18px;
+  grid-template-columns:1fr;
+}
+@media (min-width:820px){.titular{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.titular .grande{
+  font-family:var(--dato); font-weight:600; letter-spacing:-.03em;
+  font-size:clamp(2.6rem,8vw,4.2rem); line-height:1; margin:0;
+  font-variant-numeric:tabular-nums; color:var(--gr-azul-500);
+}
+.titular p{margin:10px 0 0; font-family:var(--prosa); color:var(--gr-tinta-2); max-width:54ch}
+
+/* -------------------------------------------------------- objetivos */
+.objetivos{display:grid; gap:12px; grid-template-columns:1fr}
+@media (min-width:700px){.objetivos{grid-template-columns:repeat(2,1fr)}}
+.objetivo{
+  display:flex; gap:12px; align-items:flex-start;
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-radius:4px; padding:14px 16px;
+}
+.objetivo .num{
+  font-family:var(--dato); font-weight:600; color:var(--gr-azul-500);
+  font-size:.9rem; padding-top:1px;
+}
+.objetivo p{margin:0; font-family:var(--prosa); font-size:.92rem; color:var(--gr-tinta-2)}
+.objetivo strong{font-family:var(--ui); color:var(--gr-tinta)}
+
+/* -------------------------------------------------- tabla de parroquias */
+td .lectura{font-family:var(--dato); font-size:.78rem}
+.vecina{color:var(--gr-tinta-3)}
+.sinv{color:var(--gr-aviso); font-weight:600}
+.barrita{
+  display:inline-block; vertical-align:middle; width:52px; height:7px;
+  border-radius:3px; background:var(--gr-vacio); margin-right:7px; overflow:hidden;
+}
+.barrita i{display:block; height:100%; background:var(--gr-s1); border-radius:3px}
+
+/* ---------------------------------------------------------------------------
+   EL MAPA DE LA RED
+   Lienzo oscuro en los dos temas, a propósito: una red de 1.923 km dibujada
+   con líneas de un píxel solo se lee cuando el fondo no compite con ella.
+   La escala NO es secuencial: es divergente, y gira en el radio que fija la
+   ordenanza. Azul es «dentro de la norma», ocre es «fuera».
+--------------------------------------------------------------------------- */
+:root{
+  --gr-cerca-2:#A9D2F2;  /* a menos de medio radio */
+  --gr-cerca-1:#4189C4;  /* dentro del radio */
+  --gr-pivote:#9AA7B2;   /* justo fuera */
+  --gr-lejos-1:#D19A72;
+  --gr-lejos-2:#8C3B18;
+  --gr-noche:#0A0E13;
+}
+.lienzo--noche{background:var(--gr-noche)}
+.lienzo--noche #svg-mapa, .lienzo--noche #svg-red{background:var(--gr-noche)}
+.tramo-via{fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6}
+.lienzo--noche .par{stroke:#3C4752; stroke-width:1.5; opacity:.9}
+.lienzo--noche .leyenda{
+  background:var(--gr-noche); color:#C3CDD6; border-top-color:#222A33;
+}
+.vistas{display:flex; gap:0; border:1px solid var(--gr-linea-fuerte); border-radius:4px; overflow:hidden}
+.vistas .pastilla{border:none; border-radius:0; margin:0}
+.vistas .pastilla + .pastilla{border-left:1px solid var(--gr-linea-fuerte)}
+
+/* ---------------------------------------------------------------------------
+   SIMBOLOGÍA CARTOGRÁFICA
+   Lo que separa un gráfico de colores de una lámina: la escala, el norte, el
+   rótulo del lugar y una leyenda que dice dónde está el umbral. Todo medido,
+   nada decorativo: la barra de escala se calcula con los metros por unidad
+   que traen los datos.
+--------------------------------------------------------------------------- */
+.figura{
+  font-family:var(--prosa); font-style:italic; font-size:.84rem;
+  color:var(--gr-tinta-2); margin:0 0 10px;
+}
+.figura b{font-family:var(--ui); font-style:normal; font-weight:700; color:var(--gr-tinta)}
+
+/* Rótulos sobre el mapa, con su guía fina. Van en el SVG para que escalen
+   con él y no se despeguen del sitio que nombran. */
+.rotulo{
+  font-family:var(--ui); font-weight:600; fill:var(--gr-tinta);
+  paint-order:stroke; stroke:var(--gr-fondo); stroke-width:3px;
+  stroke-linejoin:round; pointer-events:none;
+}
+.lienzo--noche .rotulo{fill:#E7EEF4; stroke:#0A0E13}
+.guia{stroke:var(--gr-tinta-3); stroke-width:1; pointer-events:none; opacity:.7}
+.lienzo--noche .guia{stroke:#8496A4}
+.punto-rotulo{fill:var(--gr-tinta-3); pointer-events:none}
+.lienzo--noche .punto-rotulo{fill:#C3CDD6}
+
+/* La escala y el norte, abajo a la izquierda del lienzo. */
+.aparejo{
+  position:absolute; left:14px; bottom:14px; z-index:3;
+  display:flex; align-items:flex-end; gap:16px; pointer-events:none;
+}
+.escala-barra{
+  font-family:var(--dato); font-size:.68rem; color:var(--gr-tinta-2);
+  letter-spacing:.02em;
+}
+/* Sin min-width ni max-width: el ancho lo fija el cálculo en píxeles, y
+   forzarlo desde aquí volvería a hacer que la barra midiera otra cosa de la
+   que dice. */
+.lienzo--noche .escala-barra, .lienzo--noche .norte{color:#C3CDD6}
+.escala-barra .regla{
+  display:flex; height:7px; border:1px solid currentColor; margin-bottom:3px;
+}
+.escala-barra .regla span{flex:1; border-right:1px solid currentColor}
+.escala-barra .regla span:last-child{border-right:none}
+.escala-barra .regla span:nth-child(odd){background:currentColor}
+.escala-barra .cifras{display:flex; justify-content:space-between}
+.norte{
+  font-family:var(--dato); font-size:.68rem; color:var(--gr-tinta-2);
+  text-align:center; line-height:1.1;
+}
+.norte svg{display:block; margin:0 auto 2px}
+
+/* La leyenda graduada: una rampa continua con el umbral de la ordenanza
+   marcado encima. Es la forma en que una lámina dice «aquí está la norma». */
+.rampa{display:flex; flex-direction:column; gap:3px; min-width:min(330px,100%)}
+.rampa .barra-l{display:flex; height:11px; border-radius:2px; overflow:hidden}
+.rampa .barra-l i{flex:1; display:block}
+.rampa .ejes{position:relative; height:28px}
+.rampa .marca{
+  position:absolute; transform:translateX(-50%); text-align:center;
+  font-family:var(--dato); font-size:.66rem; color:var(--gr-tinta-3);
+  line-height:1.25; white-space:nowrap;
+}
+.lienzo--noche .rampa .marca{color:#9BA8B4}
+.rampa .marca::before{
+  content:""; display:block; width:1px; height:5px; margin:0 auto 2px;
+  background:currentColor;
+}
+.rampa .marca.umbral{color:var(--gr-tinta); font-weight:600}
+.lienzo--noche .rampa .marca.umbral{color:#F0F5FA}
+.rampa .marca.umbral::before{height:9px; width:2px}
+.rampa .titulo{
+  font-family:var(--ui); font-size:.7rem; font-weight:700; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--gr-tinta-3);
+}
+.aparte{
+  display:flex; align-items:center; gap:7px; font-family:var(--dato);
+  font-size:.7rem; color:var(--gr-tinta-2); padding-left:18px;
+  border-left:1px solid var(--gr-linea); margin-left:4px;
+}
+.aparte i{width:15px; height:11px; border-radius:2px; display:block}
+.leyenda{align-items:flex-end}
+
+/* ---------------------------------------------------------------------------
+   ICONOS, ACENTO POR INDICADOR Y PANELES COMPARADOS
+   El acento sigue a la ENTIDAD, no a su posición: el área verde es verde en la
+   tarjeta, en el mapa, en la pastilla y en la columna de la tabla. Es la regla
+   4 del sistema —el color sigue a la entidad, filtrar no repinta lo que queda—
+   y es lo que hace que cambiar de indicador se sienta como cambiar de tema y
+   no como que se movió un número.
+--------------------------------------------------------------------------- */
+.ico{display:block; flex:none; width:auto; height:auto}
+.ico-caja{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:6px; flex:none;
+  background:var(--gr-azul-100); color:var(--gr-azul-500);
+}
+.ind .ico-caja{background:color-mix(in srgb, var(--acento) 14%, transparent); color:var(--acento)}
+.ind{border-top:3px solid var(--acento)}
+.ind h3{display:flex; align-items:center; gap:11px}
+.ind .cifra b{color:var(--acento)}
+.ind .barra i{background:var(--acento)}
+.ind--1{--acento:var(--gr-s1)}
+.ind--2{--acento:var(--gr-s2)}
+.ind--3{--acento:var(--gr-s3)}
+
+.pastilla{display:inline-flex; align-items:center; gap:7px}
+.pastilla[aria-pressed="true"][data-ind]{
+  background:var(--acento-sel); border-color:var(--acento-sel);
+}
+.ventana h3{gap:10px}
+.ventana .ico-caja{width:34px; height:34px}
+.ventana--1 .ico-caja{background:color-mix(in srgb, var(--gr-s1) 15%, transparent); color:var(--gr-s1)}
+.ventana--2 .ico-caja{background:color-mix(in srgb, var(--gr-s2) 15%, transparent); color:var(--gr-s2)}
+.ventana--3 .ico-caja{background:color-mix(in srgb, var(--gr-s3) 15%, transparent); color:var(--gr-s3)}
+.ventana--4 .ico-caja{background:color-mix(in srgb, var(--gr-s4) 15%, transparent); color:var(--gr-s4)}
+.objetivo{gap:14px}
+.objetivo .ico-caja{width:36px; height:36px}
+.gr-nota--aviso .cabeza{display:flex; align-items:center; gap:9px; margin-bottom:6px}
+.gr-nota--aviso .cabeza .ico{color:var(--gr-aviso)}
+
+/* Los tres paneles comparados: la misma ciudad, los tres indicadores, uno al
+   lado del otro. Es la única forma de ver de un vistazo que lo que a la
+   escuela le sobra a la salud le falta; alternando no se compara, se recuerda. */
+.paneles{display:grid; gap:14px; grid-template-columns:1fr}
+@media (min-width:720px){.paneles{grid-template-columns:repeat(3,1fr)}}
+.panel{
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-top:3px solid var(--acento); border-radius:6px; overflow:hidden;
+}
+.panel h3{
+  margin:0; padding:13px 14px 0; font-size:.92rem; font-weight:600;
+  display:flex; align-items:center; gap:9px; color:var(--gr-tinta);
+}
+.panel h3 .ico{color:var(--acento)}
+.panel svg.lamina{display:block; width:100%; height:auto; background:var(--gr-fondo)}
+.panel .pie-panel{
+  padding:11px 14px 13px; display:flex; align-items:baseline; gap:8px;
+  border-top:1px solid var(--gr-linea);
+}
+.panel .pie-panel b{
+  font-family:var(--dato); font-size:1.45rem; font-weight:600; color:var(--acento);
+  font-variant-numeric:tabular-nums; line-height:1; white-space:nowrap; flex:none;
+}
+.panel .pie-panel span{font-family:var(--dato); font-size:.74rem; color:var(--gr-tinta-3)}
+.panel--1{--acento:var(--gr-s1)}
+.panel--2{--acento:var(--gr-s2)}
+.panel--3{--acento:var(--gr-s3)}
+.mz-l{stroke:none}
+.par-l{fill:none; stroke:var(--gr-linea-fuerte); stroke-width:2; opacity:.7}
+
+/* La tabla, con la columna del indicador elegido resaltada en su tono. */
+th.viva{color:var(--acento-sel)!important; box-shadow:inset 0 -2px 0 var(--acento-sel)}
+.barrita i{background:var(--acento-sel)}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es-EC">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapoteca · LLACTA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<header>
+  <div class="cab">
+    <p class="migas"><a href="index.html">← LLACTA</a></p>
+    <div class="marca">
+      <a class="vuelta" href="index.html">Mapoteca</a>
+      <span class="sub">Las capas publicadas del GADM Riobamba</span>
+    </div>
+    <p class="lema">
+      Todo lo que el visor de territorio publica, con su ficha. Cada cifra de
+      aquí —registros, campos, peso, fecha— sale de abrir el archivo, no de una
+      descripción escrita a mano que envejece sin que nadie lo note.
+    </p>
+    <div class="sello" id="sello"></div>
+  </div>
+</header>
+
+<div class="envoltura">
+
+  <h2 class="gr-eyebrow">Las capas</h2>
+  <div class="gr-tabla">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Capa</th>
+          <th scope="col">Forma</th>
+          <th scope="col" style="text-align:right">Registros</th>
+          <th scope="col" style="text-align:right">Peso</th>
+          <th scope="col">Origen y licencia</th>
+          <th scope="col">Actualizada</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="filas"></tbody>
+    </table>
+  </div>
+
+  <h2 class="gr-eyebrow">Lo que este catálogo deja ver</h2>
+  <div class="prosa">
+    <div id="hallazgos"></div>
+
+    <h3>Por qué una mapoteca</h3>
+    <p>
+      Las capas ya estaban publicadas y accesibles desde cualquier origen, pero
+      para llegar a una había que saberse la dirección exacta del archivo. Eso
+      no es publicar: es dejarlas donde las encuentra quien ya sabe dónde están.
+    </p>
+    <p>
+      Y hace falta por una segunda razón, menos obvia: un observatorio tiene que
+      poder decir <em>con qué</em> calculó cada cifra, y que cualquiera baje esa
+      misma capa y la reproduzca. Sin catálogo, la cifra hay que creérsela.
+    </p>
+
+    <h3>Qué significa cada columna</h3>
+    <ul>
+      <li><strong>Registros y campos</strong> se cuentan abriendo el archivo.</li>
+      <li><strong>Peso</strong> es el del archivo publicado, no una estimación.</li>
+      <li><strong>Actualizada</strong> es la fecha del archivo. No es la fecha
+        del dato: una capa del Censo 2022 reescrita ayer sigue siendo de 2022.</li>
+      <li><strong>Licencia</strong> va declarada, no deducida del archivo. Lo
+        marcado con <span class="gr-chip gr-chip--aviso">Por verificar</span> es
+        una deducción que alguien tiene que confirmar antes de que esto se
+        publique de verdad.</li>
+    </ul>
+
+    <div class="gr-nota gr-nota--aviso">
+      <strong>Lo derivado de OpenStreetMap es ODbL.</strong> Eso arrastra la
+      licencia a cualquier base de datos que salga de ahí, con atribución y con
+      la misma licencia. Es la razón de que, cuando se monte la base del
+      observatorio, lo de OSM tenga que vivir en sus propias tablas desde el
+      primer día: mezclado, ya no hay forma de publicar lo propio sin arrastrar
+      la licencia.
+    </div>
+    <div class="gr-nota">
+      <strong>Del catastro no sale el nombre del propietario.</strong> Clave,
+      superficie, tipo y estado sí; nombre y número de trámite, nunca.
+    </div>
+    <div class="gr-nota">
+      <strong>La capa de sectores censales del INEC no está aquí ni lo estará.</strong>
+      Sus condiciones de uso son de copyright. Lo que se publica es un derivado
+      agregado: la población repartida sobre manzanas, barrios y parroquias.
+    </div>
+  </div>
+
+  <footer id="pie"></footer>
+</div>
+
+<script src="datos/capas.js"></script>
+<script src="comun.js"></script>
+<script>
+(function () {
+  var d = window.LLACTA_CAPAS;
+  var sello = document.getElementById('sello');
+  if (!d || !d.capas) {
+    sello.innerHTML = '<span class="gr-chip gr-chip--aviso">No se pudo cargar ' +
+      'datos/capas.js — corre scripts/mapoteca.py</span>';
+    return;
+  }
+  var F = window.LL;
+
+  var mb = d.capas.reduce(function (s, c) { return s + c.bytes; }, 0) / 1048576;
+  sello.innerHTML =
+    '<span class="gr-chip gr-chip--info">' + d.capas.length + ' capas</span>' +
+    '<span class="gr-chip">' + F.N1.format(mb) + ' MB en total</span>' +
+    '<span class="gr-chip">Catálogo del ' + F.esc(F.fecha(d.generado)) + '</span>';
+
+  var FORMA = {
+    Point: 'puntos', MultiPoint: 'puntos',
+    LineString: 'líneas', MultiLineString: 'líneas',
+    Polygon: 'polígonos', MultiPolygon: 'polígonos'
+  };
+
+  document.getElementById('filas').innerHTML = d.capas.map(function (c) {
+    var formas = (c.formas || []).map(function (f) { return FORMA[f] || f; });
+    formas = formas.filter(function (f, i) { return formas.indexOf(f) === i; });
+
+    var marcas = '';
+    if (!c.en_chaski && !c.auxiliar) {
+      marcas += ' <span class="gr-chip gr-chip--aviso">No está en CHASKI</span>';
+    }
+    if (c.auxiliar) {
+      marcas += ' <span class="gr-chip">Pieza interna del visor</span>';
+    }
+
+    var campos = (c.campos || []).length
+      ? '<span class="campos">' + F.esc(c.campos.join(' · ')) + '</span>'
+      : '';
+
+    var lic = F.esc(c.licencia);
+    if (c.licencia_por_verificar) {
+      lic = '<span class="gr-chip gr-chip--aviso">' + lic + ' · por verificar</span>';
+    }
+
+    return '<tr>' +
+      // El nombre del archivo va a la vista: es lo que se descarga, y hay
+      // nombres editoriales que se repiten —«Parroquias» son dos capas
+      // distintas, las 5 urbanas y las 17 del cantón—.
+      '<td><strong>' + F.esc(c.nombre) + '</strong>' + marcas +
+        '<br><span class="campos" style="font-family:var(--dato)">' +
+        F.esc(c.archivo) + '</span>' +
+        (c.nota ? '<span class="campos">' + F.esc(c.nota) + '</span>' : '') +
+        campos + '</td>' +
+      '<td class="m">' + F.esc(formas.join(', ') || '—') + '</td>' +
+      '<td class="n">' + (c.registros == null ? '—' : F.N.format(c.registros)) + '</td>' +
+      '<td class="n">' + F.peso(c.bytes) + '</td>' +
+      '<td class="m">' + F.esc(c.origen) + '<br>' + lic + '</td>' +
+      '<td class="m">' + F.esc(c.modificado) + '</td>' +
+      '<td><a class="gr-btn" href="' + F.esc(c.descarga) + '" download>Descargar</a></td>' +
+      '</tr>';
+  }).join('');
+
+  // Los huecos que el catálogo deja a la vista, contados del propio dato.
+  var fuera = d.capas.filter(function (c) { return !c.en_chaski && !c.auxiliar; });
+  var dudosas = d.capas.filter(function (c) { return c.licencia_por_verificar; });
+  var h = '';
+  if (fuera.length) {
+    h += '<div class="gr-nota gr-nota--aviso"><strong>' + fuera.length +
+      ' capas están publicadas pero no entran en CHASKI.</strong> ' +
+      fuera.map(function (c) { return F.esc(c.archivo); }).join(', ') +
+      '. El visor las sirve y el analizador no las ofrece, así que hoy nadie ' +
+      'las puede cruzar con nada sin bajárselas a mano.</div>';
+  }
+  if (dudosas.length) {
+    h += '<div class="gr-nota gr-nota--aviso"><strong>' + dudosas.length +
+      ' capas tienen la licencia sin confirmar.</strong> ' +
+      dudosas.map(function (c) { return F.esc(c.archivo); }).join(', ') +
+      '. Están marcadas como ODbL por deducción —vienen de la vialidad— y eso ' +
+      'hay que confirmarlo, no suponerlo, en un catálogo público.</div>';
+  }
+  document.getElementById('hallazgos').innerHTML = h;
+
+  document.getElementById('pie').textContent =
+    'Las capas se sirven desde ' + d.origen_publicado + '. Catálogo generado el ' +
+    F.fecha(d.generado) + ' leyendo los archivos publicados.';
+})();
+</script>
+</body>
+</html>
