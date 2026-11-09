@@ -11,6 +11,7 @@
   --gr-tinta:#0F1922; --gr-tinta-2:#3C4A57; --gr-tinta-3:#66757F;
   --gr-linea:#D3DBE2; --gr-linea-fuerte:#B4C0CA;
   --gr-s1:#2C74B0; --gr-s2:#D1732B; --gr-s3:#1F9070; --gr-s4:#8A5AD6;
+  --gr-s5:#CE3D63; --gr-s6:#0090AE; --gr-s7:#7F8C14; --gr-s8:#B0479C;
   --gr-vacio:#D3DBE2;
   --ui:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
   --prosa:'IBM Plex Serif',Georgia,'Times New Roman',serif;
@@ -23,6 +24,7 @@
   --gr-tinta:#E7EEF4; --gr-tinta-2:#B3C1CD; --gr-tinta-3:#8496A4;
   --gr-linea:#2A3945; --gr-linea-fuerte:#3B4C5A;
   --gr-s1:#4E95D2; --gr-s2:#D07B33; --gr-s3:#35A67F; --gr-s4:#9E77DC;
+  --gr-s5:#DC5A78; --gr-s6:#1FA5C2; --gr-s7:#8E9D22; --gr-s8:#C25CAE;
   --gr-vacio:#2A3945;
 }}
 :root[data-theme="dark"]{
@@ -32,6 +34,7 @@
   --gr-tinta:#E7EEF4; --gr-tinta-2:#B3C1CD; --gr-tinta-3:#8496A4;
   --gr-linea:#2A3945; --gr-linea-fuerte:#3B4C5A;
   --gr-s1:#4E95D2; --gr-s2:#D07B33; --gr-s3:#35A67F; --gr-s4:#9E77DC;
+  --gr-s5:#DC5A78; --gr-s6:#1FA5C2; --gr-s7:#8E9D22; --gr-s8:#C25CAE;
   --gr-vacio:#2A3945;
 }
 
@@ -104,9 +107,15 @@ header{border-bottom:1px solid var(--gr-linea); background:var(--gr-superficie)}
   border-radius:6px; padding:18px; text-decoration:none; color:inherit;
 }
 a.ventana:hover{border-color:var(--gr-azul-500); background:var(--gr-azul-100)}
-.ventana--1{border-top-color:var(--gr-s1)}
-.ventana--2{border-top-color:var(--gr-s2)}
-.ventana--3{border-top-color:var(--gr-s3)}
+/* LAS VENTANAS NO USAN LOS COLORES DE LOS INDICADORES.
+   Las series 1, 2 y 3 son el área verde, la escuela y la salud —son datos—.
+   Si las ventanas usaran esas mismas tres, el azul significaría «área verde»
+   y «Visor» a la vez en la misma pantalla, y el color dejaría de querer decir
+   nada. Las ventanas se llevan la otra mitad de la paleta, que está validada
+   igual: así hay un solo registro de color y cada tono nombra una cosa. */
+.ventana--1{border-top-color:var(--gr-s6)}
+.ventana--2{border-top-color:var(--gr-s8)}
+.ventana--3{border-top-color:var(--gr-s7)}
 .ventana--4{border-top-color:var(--gr-s4)}
 .ventana[aria-disabled="true"]{opacity:.72; border-style:dashed}
 .ventana h3{
@@ -453,10 +462,16 @@ td .lectura{font-family:var(--dato); font-size:.78rem}
 }
 .ventana h3{gap:10px}
 .ventana .ico-caja{width:34px; height:34px}
-.ventana--1 .ico-caja{background:color-mix(in srgb, var(--gr-s1) 15%, transparent); color:var(--gr-s1)}
-.ventana--2 .ico-caja{background:color-mix(in srgb, var(--gr-s2) 15%, transparent); color:var(--gr-s2)}
-.ventana--3 .ico-caja{background:color-mix(in srgb, var(--gr-s3) 15%, transparent); color:var(--gr-s3)}
+.ventana--1 .ico-caja{background:color-mix(in srgb, var(--gr-s6) 15%, transparent); color:var(--gr-s6)}
+.ventana--2 .ico-caja{background:color-mix(in srgb, var(--gr-s8) 15%, transparent); color:var(--gr-s8)}
+.ventana--3 .ico-caja{background:color-mix(in srgb, var(--gr-s7) 15%, transparent); color:var(--gr-s7)}
 .ventana--4 .ico-caja{background:color-mix(in srgb, var(--gr-s4) 15%, transparent); color:var(--gr-s4)}
+.ventana--1 .flecha{color:var(--gr-s6)}
+.ventana--2 .flecha{color:var(--gr-s8)}
+.ventana--3 .flecha{color:var(--gr-s7)}
+a.ventana--1:hover{border-color:var(--gr-s6)}
+a.ventana--2:hover{border-color:var(--gr-s8)}
+a.ventana--3:hover{border-color:var(--gr-s7)}
 .objetivo{gap:14px}
 .objetivo .ico-caja{width:36px; height:36px}
 .gr-nota--aviso .cabeza{display:flex; align-items:center; gap:9px; margin-bottom:6px}
@@ -495,3 +510,60 @@ td .lectura{font-family:var(--dato); font-size:.78rem}
 /* La tabla, con la columna del indicador elegido resaltada en su tono. */
 th.viva{color:var(--acento-sel)!important; box-shadow:inset 0 -2px 0 var(--acento-sel)}
 .barrita i{background:var(--acento-sel)}
+
+/* ---------------------------------------------------------------------------
+   LA CINTA DE NAVEGACIÓN
+   Se llama «cinta» y no «barra» porque `.barra` ya existía: es la barrita de
+   cobertura de las tarjetas, de 10 px de alto y con `overflow:hidden`. La
+   navegación heredó esa altura y quedó invisible sin un solo error.
+   La página es larga y hasta ahora solo se recorría con la rueda. La barra se
+   queda pegada arriba y marca en qué sección estás, que es lo que convierte un
+   documento largo en algo navegable: no basta con poder saltar, hay que saber
+   dónde se está parado.
+--------------------------------------------------------------------------- */
+.cinta{
+  position:sticky; top:0; z-index:20;
+  background:color-mix(in srgb, var(--gr-superficie) 92%, transparent);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--gr-linea);
+}
+.cinta-dentro{
+  max-width:1060px; margin:0 auto; padding:0 16px;
+  display:flex; align-items:center; gap:4px; overflow-x:auto;
+  scrollbar-width:none;
+}
+.cinta-dentro::-webkit-scrollbar{display:none}
+.cinta .sigla{
+  font-weight:700; color:var(--gr-azul-500); letter-spacing:-.01em;
+  margin-right:14px; text-decoration:none; font-size:1.02rem; flex:none;
+  padding:11px 0;
+}
+.cinta a.salto{
+  font-size:.82rem; font-weight:600; color:var(--gr-tinta-2);
+  text-decoration:none; padding:13px 11px; white-space:nowrap; flex:none;
+  border-bottom:2px solid transparent;
+}
+.cinta a.salto:hover{color:var(--gr-azul-500)}
+.cinta a.salto[aria-current="true"]{
+  color:var(--gr-azul-500); border-bottom-color:var(--gr-azul-500);
+}
+.cinta .fuera{margin-left:auto; display:flex; gap:4px; flex:none}
+.cinta .fuera a{
+  font-size:.78rem; font-weight:600; text-decoration:none; padding:5px 10px;
+  border:1px solid var(--gr-linea-fuerte); border-radius:4px; white-space:nowrap;
+  color:var(--gr-tinta-2); display:inline-flex; align-items:center; gap:6px;
+}
+.cinta .fuera a:hover{border-color:var(--gr-azul-500); color:var(--gr-azul-500)}
+
+/* Para que un salto no deje el título debajo de la barra. */
+[id]{scroll-margin-top:62px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Arriba del todo las ventanas pesan menos: son la puerta, no el contenido.
+   Siguen siendo tarjetas, pero más bajas, para que el titular y el mapa se
+   vean sin desplazar. */
+.ventanas--cabecera .ventana{min-height:0; gap:8px; padding:15px 16px}
+.ventanas--cabecera .ventana p{font-size:.86rem}
+.ventanas--cabecera .ventana .pie{padding-top:8px; font-size:.7rem}
+.ventanas--cabecera .ventana h3{font-size:1.06rem}

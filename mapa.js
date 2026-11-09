@@ -588,3 +588,50 @@
   tallarRotulos();
   tablaParroquias();
 })();
+
+/* El seguidor de la cinta: marca en qué sección estás mientras bajas.
+ *
+ * Poder saltar no es navegar. Un documento largo se vuelve navegable cuando
+ * además sabes dónde estás parado, y eso en una página de scroll solo lo
+ * puede decir la propia página.
+ *
+ * Con IntersectionObserver y no escuchando el scroll: el oyente de scroll se
+ * dispara decenas de veces por segundo y hace trabajo en cada una; esto solo
+ * avisa cuando una sección cruza la línea.
+ */
+(function () {
+  var saltos = [].slice.call(document.querySelectorAll('.cinta a.salto'));
+  if (!saltos.length || !window.IntersectionObserver) return;
+
+  var secciones = saltos.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  }).filter(Boolean);
+
+  var visibles = new Set();
+  function marcar() {
+    var activa = null;
+    for (var i = 0; i < secciones.length; i++) {
+      if (visibles.has(secciones[i].id)) { activa = secciones[i].id; break; }
+    }
+    saltos.forEach(function (a) {
+      var suya = a.getAttribute('href').slice(1) === activa;
+      if (suya) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  var vigia = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) visibles.add(e.target.id);
+      else visibles.delete(e.target.id);
+    });
+    marcar();
+  }, {
+    // La franja útil es la mitad de arriba de la pantalla: una sección se
+    // considera «donde estás» cuando su título ya pasó la barra y todavía no
+    // se fue por abajo.
+    rootMargin: '-62px 0px -55% 0px',
+    threshold: 0
+  });
+  secciones.forEach(function (s) { vigia.observe(s); });
+})();
