@@ -111,6 +111,28 @@
      vuelo, y no cosidos al SVG: cambiar de escala tiene que cambiar lo que se
      ve sobre el mapa, no solo la tabla de abajo. Si el mapa siguiera con las
      parroquias mientras la tabla habla de plataformas, serían dos páginas. */
+  /* Los equipamientos del indicador elegido, y el límite urbano.
+     Van en su propia capa porque cambian con cosas distintas: los puntos con
+     el indicador, el límite nunca. El radio va en píxeles de pantalla como
+     todo lo demás, para que al acercarse no se conviertan en globos. */
+  function pintarContexto() {
+    var pts = (M.equipamientos || {})[D.indicadores[elegido].clave] || [];
+    var r = Math.max(1.4, (vista === 'calles' ? R : M).viewBox[encuadre][2] / 430);
+    var bolas = pts.map(function (p) {
+      return '<circle class="equip" cx="' + p[0] + '" cy="' + p[1] +
+        '" r="' + r.toFixed(1) + '"/>';
+    }).join('');
+    document.querySelectorAll('.capa-equip').forEach(function (g) {
+      g.innerHTML = bolas;
+    });
+    var u = (M.limite_urbano || []).map(function (d) {
+      return '<path class="urbano" d="' + d + '"/>';
+    }).join('');
+    document.querySelectorAll('.capa-urbano').forEach(function (g) {
+      g.innerHTML = u;
+    });
+  }
+
   function pintarLimites() {
     var L = limites();
     var bordes = L.map(function (p) {
@@ -133,8 +155,14 @@
      recalcularse al cambiar de encuadre o el nombre saldría del tamaño de
      una parroquia entera en la vista de ciudad. */
   function tallarRotulos() {
-    var ancho = (vista === 'calles' ? R : M).viewBox[encuadre][2];
-    var cuerpo = Math.max(7, ancho / 52);
+    // El cuerpo del rótulo en PÍXELES DE PANTALLA, igual que los trazos: con
+    // las calles a un pelo, un rótulo que escala con el viewBox se come el
+    // mapa en cuanto uno se acerca.
+    var fuente = vista === 'calles' ? R : M;
+    var svgEl = document.getElementById(vista === 'calles' ? 'svg-red' : 'svg-mapa');
+    var ancho = fuente.viewBox[encuadre][2];
+    var px = svgEl ? svgEl.getBoundingClientRect().width : ancho;
+    var cuerpo = ancho / Math.max(px, 1) * 13;
     document.querySelectorAll('.rotulos').forEach(function (g) {
       g.style.fontSize = cuerpo + 'px';
       g.querySelectorAll('.punto-rotulo').forEach(function (c) {
@@ -211,7 +239,8 @@
   for (var i = 0; i < M.manzanas.length; i++) {
     svg += '<path class="mz" data-i="' + i + '" d="' + M.manzanas[i].d + '"/>';
   }
-  svg += '<g class="capa-lim"></g><g class="rotulos"></g></svg>';
+  svg += '<g class="capa-urbano"></g><g class="capa-lim"></g>' +
+    '<g class="capa-equip"></g><g class="rotulos"></g></svg>';
   // La escala y el norte se reponen aquí: `caja-mapa` se reescribe entera al
   // dibujar, y si el aparejo viviera solo en el HTML desaparecería.
   document.getElementById('caja-mapa').innerHTML = svg +
@@ -236,7 +265,8 @@
       s += '<polyline class="tramo-via" data-i="' + i + '" points="' +
         R.tramos[i].p + '"/>';
     }
-    s += '<g class="capa-lim"></g><g class="rotulos"></g></svg>';
+    s += '<g class="capa-urbano"></g><g class="capa-lim"></g>' +
+      '<g class="capa-equip"></g><g class="rotulos"></g></svg>';
     caja.insertAdjacentHTML('afterbegin', s);
     vias = caja.querySelectorAll('#svg-red .tramo-via');
   }
@@ -273,6 +303,7 @@
       F.esc(ind.norma.simbolo) + ' ' + F.esc(ind.norma.tipologia) +
       ' · radio ' + F.N.format(ind.radio_m) + ' m</span>';
 
+    pintarContexto();
     document.getElementById('figura').innerHTML =
       '<b>Figura ' + (vista === 'calles' ? '2' : '1') + '</b> · ' +
       (vista === 'calles'
@@ -381,6 +412,7 @@
     if (r) r.setAttribute('viewBox', R.viewBox[encuadre].join(' '));
     aparejo();
     tallarRotulos();
+    pintarContexto();
   }
 
   function cambiarVista() {
@@ -426,6 +458,7 @@
       cambiarVista();
       pintar();
       pintarLimites();
+      pintarContexto();
       aparejo();
     } else {
       encuadre = b.dataset.enc;

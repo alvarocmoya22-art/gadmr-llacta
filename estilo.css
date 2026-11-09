@@ -248,9 +248,21 @@ a{color:var(--gr-azul-500)}
    las pastillas viven ahí dentro y con `width:100%` salían del tamaño de una
    tarjeta. */
 #svg-mapa, #svg-red{display:block; width:100%; height:auto; background:var(--gr-fondo)}
+/* EL GROSOR VA EN PIXELES DE PANTALLA, no en unidades del dibujo.
+   `vector-effect:non-scaling-stroke` desengancha el trazo de la escala del
+   viewBox. Sin él, acercarse a la ciudad encoge el viewBox, el navegador
+   escala todo con él y las calles engordan hasta empastarse: el damero del
+   centro se convertía en una mancha. Así la línea mide lo mismo en el cantón
+   y en la ciudad, y es la densidad la que crea el tono, no el grosor. */
 .mz{stroke:none; shape-rendering:geometricPrecision}
-.mz:hover{stroke:var(--gr-tinta); stroke-width:3; paint-order:stroke}
-.par{fill:none; stroke:var(--gr-borde-mapa); stroke-width:2; pointer-events:none; opacity:.85}
+.mz:hover{
+  stroke:var(--gr-tinta); stroke-width:2; vector-effect:non-scaling-stroke;
+  paint-order:stroke;
+}
+.par{
+  fill:none; stroke:var(--gr-borde-mapa); stroke-width:1.6;
+  vector-effect:non-scaling-stroke; pointer-events:none; opacity:.85;
+}
 
 .mandos{
   display:flex; gap:8px; flex-wrap:wrap; align-items:center;
@@ -341,8 +353,15 @@ td .lectura{font-family:var(--dato); font-size:.78rem}
 }
 .lienzo--noche{background:var(--gr-noche)}
 .lienzo--noche #svg-mapa, .lienzo--noche #svg-red{background:var(--gr-noche)}
-.tramo-via{fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6}
-.lienzo--noche .par{stroke:#3C4752; stroke-width:1.5; opacity:.9}
+.tramo-via{
+  fill:none; stroke-linecap:round; stroke-linejoin:round;
+  stroke-width:1.1; vector-effect:non-scaling-stroke;
+}
+/* El trazo visible es de un pelo; para poder señalar una calle con el cursor
+   hace falta algo más ancho que un píxel, así que al pasar por encima se
+   engorda. El relleno transparente da superficie que señalar sin pintar nada. */
+.tramo-via:hover{stroke-width:4}
+.lienzo--noche .par{stroke:#56636F; stroke-width:1.4; opacity:.95}
 .lienzo--noche .leyenda{
   background:var(--gr-noche); color:#C3CDD6; border-top-color:#222A33;
 }
@@ -505,7 +524,10 @@ a.ventana--3:hover{border-color:var(--gr-s7)}
 .panel--2{--acento:var(--gr-s2)}
 .panel--3{--acento:var(--gr-s3)}
 .mz-l{stroke:none}
-.par-l{fill:none; stroke:var(--gr-linea-fuerte); stroke-width:2; opacity:.7}
+.par-l{
+  fill:none; stroke:var(--gr-linea-fuerte); stroke-width:1;
+  vector-effect:non-scaling-stroke; opacity:.75;
+}
 
 /* La tabla, con la columna del indicador elegido resaltada en su tono. */
 th.viva{color:var(--acento-sel)!important; box-shadow:inset 0 -2px 0 var(--acento-sel)}
@@ -567,3 +589,22 @@ html{scroll-behavior:smooth}
 .ventanas--cabecera .ventana p{font-size:.86rem}
 .ventanas--cabecera .ventana .pie{padding-top:8px; font-size:.7rem}
 .ventanas--cabecera .ventana h3{font-size:1.06rem}
+
+/* ---------------------------------------------------------------------------
+   EL CONTEXTO DEL MAPA
+   Hasta aquí el mapa enseñaba el efecto sin la causa: se veía a quién alcanza
+   un parque y no se veía dónde está el parque. Los puntos son los
+   equipamientos que producen esa cobertura, y el límite urbano dice dónde
+   acaba la ciudad — sin él no se distingue «sin cobertura» de «es campo».
+--------------------------------------------------------------------------- */
+.equip{
+  fill:var(--acento-sel); stroke:var(--gr-superficie); stroke-width:1.6;
+  vector-effect:non-scaling-stroke; pointer-events:none;
+}
+.lienzo--noche .equip{stroke:var(--gr-noche); fill:#fff}
+.urbano{
+  fill:none; stroke:var(--gr-tinta-3); stroke-width:1.4;
+  vector-effect:non-scaling-stroke; stroke-dasharray:7 5;
+  pointer-events:none; opacity:.8;
+}
+.lienzo--noche .urbano{stroke:#7E8C99; opacity:.95}

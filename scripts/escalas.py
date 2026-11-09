@@ -335,6 +335,43 @@ def main() -> None:
             ],
         })
 
+    # --------------------------------------------- los equipamientos, en el mapa
+    #
+    # Sin ellos el mapa ensena el EFECTO sin la CAUSA: se ve a quien alcanza un
+    # parque y no se ve donde esta el parque. Con los puntos encima, la mancha
+    # de cobertura deja de ser una mancha y pasa a tener un porque, y las nueve
+    # parroquias «sin inventario» se explican solas: no hay un solo punto.
+    #
+    # Son 120 puntos en total —48 areas verdes, 66 escuelas, 6 subcentros—, asi
+    # que no pesan nada al lado de las 3.756 manzanas.
+    puntos = {}
+    for ind in inds:
+        n_ = ind["norma"]
+        sel = eq[
+            (eq["tipo"].map(sin_tildes) == sin_tildes(n_["uso"]))
+            & (eq["tipologia"] == n_["tipologia"])
+        ]
+        puntos[ind["clave"]] = [
+            [round((g.x - x0) * escala), round((y0 - g.y) * escala)]
+            for g in sel.geometry
+        ]
+        log(f"  puntos de {ind['clave']}: {len(puntos[ind['clave']])}")
+
+    # El limite urbano, como referencia. Un mapa de calles sobre negro no dice
+    # donde acaba la ciudad, y sin eso no se sabe si lo que falta es cobertura
+    # o es campo.
+    try:
+        lim = gpd.read_file(DATOS / "limite_urbano.geojson").to_crs(M)
+        urbano = [
+            trazo(g.simplify(SIMPLIFICA * 3, preserve_topology=True), x0, y0, escala)
+            for g in lim.geometry
+        ]
+        urbano = [d for d in urbano if d]
+        log(f"  limite urbano: {len(urbano)} piezas")
+    except Exception as e:
+        urbano = []
+        log(f"  AVISO: sin limite urbano ({e})")
+
     def caja_svg(b):
         return [round((b[0] - x0) * escala), round((y0 - b[3]) * escala),
                 round((b[2] - b[0]) * escala), round((b[3] - b[1]) * escala)]
@@ -350,6 +387,8 @@ def main() -> None:
         "m_por_unidad": round(1 / escala, 4),
         "manzanas": manzanas,
         "limites": limites,
+        "equipamientos": puntos,
+        "limite_urbano": urbano,
     }
 
     destino = RAIZ / "datos"
