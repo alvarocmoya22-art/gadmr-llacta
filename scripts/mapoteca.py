@@ -41,7 +41,9 @@ URL_PUBLICA = "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos"
 ORIGEN = {
     "edificios.geojson":           ("OpenStreetMap", "ODbL", False),
     "red.json":                    ("OpenStreetMap", "ODbL", True),
-    "red_vial.geojson":            ("OpenStreetMap", "ODbL", True),
+    # Su campo `tipo` dice provincial (1.271) y estatal (13): es la red vial
+    # del GAD Provincial, no OpenStreetMap. Estaba mal marcada aqui.
+    "red_vial.geojson":            ("GAD Provincial de Chimborazo", "Por confirmar", True),
     "calles.json":                 ("OpenStreetMap", "ODbL", True),
     "manzanas.geojson":            ("INEC · Censo 2022", "Uso estadístico", False),
     "poblacion.json":              ("INEC · Censo 2022", "Derivado agregado", False),

@@ -35,9 +35,10 @@ PASOS = [
     ("escalas.py", "plataformas, parroquias y el mapa de manzanas"),
     ("red_cercania.py", "la red vial por cercania"),
     ("mapoteca.py", "el catalogo de capas publicadas"),
+    ("levantamiento.py", "de donde viene cada dato y cuanto falta"),
 ]
 
-PAGINAS = ["index.html", "mapoteca.html"]
+PAGINAS = ["index.html", "mapoteca.html", "levantamiento.html"]
 
 
 def log(m=""):

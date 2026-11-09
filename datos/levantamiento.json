@@ -1,0 +1,689 @@
+{
+  "generado": "2026-11-08",
+  "fuentes": [
+    {
+      "clave": "osm",
+      "nombre": "OpenStreetMap",
+      "licencia": "ODbL",
+      "nota": "Lo levanta cualquiera, y el municipio levanta en campo con Every Door, que escribe directo a OSM. Una base derivada de esto es tambien ODbL.",
+      "capas": [
+        {
+          "archivo": "edificios.geojson",
+          "bytes": 1601417,
+          "modificado": "2026-10-01",
+          "registros": 6039,
+          "campos": [
+            {
+              "nombre": "altura",
+              "con_dato": 6039,
+              "pct": 100.0,
+              "clave": true
+            },
+            {
+              "nombre": "clase",
+              "con_dato": 6039,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "medido",
+              "con_dato": 6039,
+              "pct": 100.0,
+              "clave": true
+            }
+          ],
+          "formas": [
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "red.json",
+          "bytes": 2062475,
+          "modificado": "2026-10-15",
+          "registros": 4,
+          "detalle": {
+            "fuente": 58,
+            "caja": 4,
+            "nodos": 12609,
+            "aristas": 17636
+          }
+        },
+        {
+          "archivo": "calles.json",
+          "bytes": 159724,
+          "modificado": "2026-09-14",
+          "registros": 1017,
+          "detalle": {
+            "generado": 20,
+            "calles": 1017
+          }
+        }
+      ]
+    },
+    {
+      "clave": "gadm",
+      "nombre": "GADM Riobamba",
+      "licencia": "Municipal",
+      "nota": "El inventario propio: lo que el municipio levanto y mantiene.",
+      "capas": [
+        {
+          "archivo": "equipamientos.geojson",
+          "bytes": 429872,
+          "modificado": "2026-09-30",
+          "registros": 1083,
+          "campos": [
+            {
+              "nombre": "elemento",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": true
+            },
+            {
+              "nombre": "estado",
+              "con_dato": 1066,
+              "pct": 98.4,
+              "clave": true
+            },
+            {
+              "nombre": "gestion",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "id",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "observaciones",
+              "con_dato": 373,
+              "pct": 34.4,
+              "clave": false
+            },
+            {
+              "nombre": "parroquia",
+              "con_dato": 1062,
+              "pct": 98.1,
+              "clave": false
+            },
+            {
+              "nombre": "tipo",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "tipologia",
+              "con_dato": 1083,
+              "pct": 100.0,
+              "clave": true
+            }
+          ],
+          "formas": [
+            "Point"
+          ]
+        },
+        {
+          "archivo": "proyectos.geojson",
+          "bytes": 21499,
+          "modificado": "2026-10-01",
+          "registros": 41,
+          "campos": [
+            {
+              "nombre": "aporta",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "barrio",
+              "con_dato": 16,
+              "pct": 39.0,
+              "clave": false
+            },
+            {
+              "nombre": "categoria",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "escala",
+              "con_dato": 11,
+              "pct": 26.8,
+              "clave": false
+            },
+            {
+              "nombre": "estado",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "icono",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "item",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "monto",
+              "con_dato": 37,
+              "pct": 90.2,
+              "clave": false
+            },
+            {
+              "nombre": "nota",
+              "con_dato": 20,
+              "pct": 48.8,
+              "clave": false
+            },
+            {
+              "nombre": "parroquia",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "plataforma",
+              "con_dato": 16,
+              "pct": 39.0,
+              "clave": false
+            },
+            {
+              "nombre": "proyecto",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "sitio",
+              "con_dato": 10,
+              "pct": 24.4,
+              "clave": false
+            },
+            {
+              "nombre": "tipologia",
+              "con_dato": 14,
+              "pct": 34.1,
+              "clave": false
+            },
+            {
+              "nombre": "uso",
+              "con_dato": 14,
+              "pct": 34.1,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "Point"
+          ]
+        },
+        {
+          "archivo": "catastro.geojson",
+          "bytes": 14995340,
+          "modificado": "2026-10-05",
+          "registros": 41681,
+          "campos": [
+            {
+              "nombre": "area",
+              "con_dato": 41382,
+              "pct": 99.3,
+              "clave": false
+            },
+            {
+              "nombre": "claves",
+              "con_dato": 41341,
+              "pct": 99.2,
+              "clave": false
+            },
+            {
+              "nombre": "estado",
+              "con_dato": 41192,
+              "pct": 98.8,
+              "clave": false
+            },
+            {
+              "nombre": "tipo_catas",
+              "con_dato": 41482,
+              "pct": 99.5,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "MultiPolygon",
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "barrios.geojson",
+          "bytes": 124209,
+          "modificado": "2026-09-30",
+          "registros": 212,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 212,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "area_ha_geom",
+              "con_dato": 212,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "catastro_2014",
+              "con_dato": 111,
+              "pct": 52.4,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 212,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "numero",
+              "con_dato": 212,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "MultiPolygon",
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "plataformas.geojson",
+          "bytes": 37482,
+          "modificado": "2026-09-30",
+          "registros": 18,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "area_ha_geom",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "clave",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "numero",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "rotulo_lat",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "rotulo_lon",
+              "con_dato": 18,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "limite_urbano.geojson",
+          "bytes": 28729,
+          "modificado": "2026-10-23",
+          "registros": 14,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 14,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "clase",
+              "con_dato": 14,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "parroquia",
+              "con_dato": 14,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "parroquias.geojson",
+          "bytes": 19964,
+          "modificado": "2026-09-30",
+          "registros": 5,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 5,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "clave",
+              "con_dato": 5,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 5,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "parroquias_canton.geojson",
+          "bytes": 230847,
+          "modificado": "2026-10-30",
+          "registros": 17,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "clave",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "densidad_hab_km2",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "poblacion",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "tipo",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "viviendas",
+              "con_dato": 17,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "MultiPolygon",
+            "Polygon"
+          ]
+        },
+        {
+          "archivo": "clasificacion_suelo.geojson",
+          "bytes": 261490,
+          "modificado": "2026-10-30",
+          "registros": 41,
+          "campos": [
+            {
+              "nombre": "area_ha",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "clase",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "densidad_hab_km2",
+              "con_dato": 28,
+              "pct": 68.3,
+              "clave": false
+            },
+            {
+              "nombre": "parroquia",
+              "con_dato": 41,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "poblacion",
+              "con_dato": 28,
+              "pct": 68.3,
+              "clave": false
+            },
+            {
+              "nombre": "viviendas",
+              "con_dato": 28,
+              "pct": 68.3,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "Polygon"
+          ]
+        }
+      ]
+    },
+    {
+      "clave": "provincial",
+      "nombre": "GAD Provincial de Chimborazo",
+      "licencia": "Por confirmar",
+      "nota": "La red vial provincial y estatal, con su capa de rodadura. Estaba marcada como OpenStreetMap en la mapoteca y no lo es: su campo `tipo` dice provincial y estatal.",
+      "verificar": true,
+      "capas": [
+        {
+          "archivo": "red_vial.geojson",
+          "bytes": 649776,
+          "modificado": "2026-10-23",
+          "registros": 1284,
+          "campos": [
+            {
+              "nombre": "km",
+              "con_dato": 1284,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "nombre",
+              "con_dato": 1049,
+              "pct": 81.7,
+              "clave": true
+            },
+            {
+              "nombre": "parroquia",
+              "con_dato": 1042,
+              "pct": 81.2,
+              "clave": false
+            },
+            {
+              "nombre": "rodadura",
+              "con_dato": 1042,
+              "pct": 81.2,
+              "clave": true
+            },
+            {
+              "nombre": "tipo",
+              "con_dato": 1284,
+              "pct": 100.0,
+              "clave": false
+            }
+          ],
+          "formas": [
+            "LineString",
+            "MultiLineString"
+          ]
+        }
+      ]
+    },
+    {
+      "clave": "inec",
+      "nombre": "INEC · Censo 2022",
+      "licencia": "Derivado agregado",
+      "nota": "Las manzanas y la poblacion. La capa de sectores no se publica: sus condiciones de uso son de copyright.",
+      "capas": [
+        {
+          "archivo": "manzanas.geojson",
+          "bytes": 2048808,
+          "modificado": "2026-10-30",
+          "registros": 3757,
+          "campos": [
+            {
+              "nombre": "codigo",
+              "con_dato": 3757,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "densidad_hab_km2",
+              "con_dato": 3757,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "parroquia_cod",
+              "con_dato": 3757,
+              "pct": 100.0,
+              "clave": false
+            },
+            {
+              "nombre": "poblacion",
+              "con_dato": 3757,
+              "pct": 100.0,
+              "clave": true
+            },
+            {
+              "nombre": "viviendas",
+              "con_dato": 3757,
+              "pct": 100.0,
+              "clave": true
+            }
+          ],
+          "formas": [
+            "MultiPolygon"
+          ]
+        },
+        {
+          "archivo": "poblacion.json",
+          "bytes": 18068,
+          "modificado": "2026-10-05",
+          "registros": null,
+          "detalle": {
+            "fuente": 73,
+            "metodo": 72,
+            "canton": 2,
+            "barrios": 209,
+            "plataformas": 18
+          }
+        }
+      ]
+    }
+  ],
+  "rodadura": {
+    "total_km": 1088.3,
+    "total_tramos": 1284,
+    "clases": [
+      {
+        "clase": "Tierra",
+        "tramos": 352,
+        "km": 310.7,
+        "pct": 28.5,
+        "sin_dato": false
+      },
+      {
+        "clase": "Lastrado",
+        "tramos": 306,
+        "km": 285.6,
+        "pct": 26.2,
+        "sin_dato": false
+      },
+      {
+        "clase": "Sin dato",
+        "tramos": 242,
+        "km": 250.5,
+        "pct": 23.0,
+        "sin_dato": true
+      },
+      {
+        "clase": "Asfalto",
+        "tramos": 294,
+        "km": 187.8,
+        "pct": 17.3,
+        "sin_dato": false
+      },
+      {
+        "clase": "Empedrado",
+        "tramos": 68,
+        "km": 42.1,
+        "pct": 3.9,
+        "sin_dato": false
+      },
+      {
+        "clase": "Adoquinado",
+        "tramos": 22,
+        "km": 11.6,
+        "pct": 1.1,
+        "sin_dato": false
+      }
+    ]
+  }
+}

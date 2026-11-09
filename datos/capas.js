@@ -1,6 +1,6 @@
 /* Generado por scripts/mapoteca.py. No editar a mano. */
 window.LLACTA_CAPAS = {
-  "generado": "2026-11-04",
+  "generado": "2026-11-08",
   "origen_publicado": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos",
   "capas": [
     {
@@ -403,8 +403,8 @@ window.LLACTA_CAPAS = {
       "detalle": null,
       "bytes": 649776,
       "modificado": "2026-10-23",
-      "origen": "OpenStreetMap",
-      "licencia": "ODbL",
+      "origen": "GAD Provincial de Chimborazo",
+      "licencia": "Por confirmar",
       "licencia_por_verificar": true,
       "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/red_vial.geojson",
       "error": null

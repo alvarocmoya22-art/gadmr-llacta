@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es-EC">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Levantamiento · LLACTA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css?v=1794196965">
+</head>
+<body>
+
+<header id="arriba">
+  <div class="cab">
+    <p class="migas"><a href="index.html">← LLACTA</a></p>
+    <div class="marca">
+      <a class="vuelta" href="index.html">Levantamiento</a>
+      <span class="sub">De dónde viene cada dato, y qué tan completo está</span>
+    </div>
+    <p class="lema">
+      El observatorio cruza información de cuatro orígenes muy distintos, y
+      hasta ahora eso solo se veía en letra chica al pie de una cifra. Aquí se
+      ve entero: qué trae cada fuente, bajo qué licencia, y
+      <strong>dónde está incompleto</strong>.
+    </p>
+    <div class="sello" id="sello"></div>
+  </div>
+</header>
+
+<nav class="cinta" aria-label="Secciones">
+  <div class="cinta-dentro">
+    <a class="sigla" href="index.html">LLACTA</a>
+    <a class="salto" href="#rodadura">La rodadura</a>
+    <a class="salto" href="#fuentes">Las fuentes</a>
+    <a class="salto" href="#falta">Lo que falta</a>
+    <span class="fuera">
+      <a href="mapoteca.html">Mapoteca</a>
+      <a href="index.html">El observatorio</a>
+    </span>
+  </div>
+</nav>
+
+<div class="envoltura">
+
+  <h2 class="gr-eyebrow" id="rodadura">La capa de rodadura</h2>
+  <div class="prosa" style="max-width:none">
+    <p style="max-width:74ch">
+      De aquí cuelga el indicador 6 del observatorio —<em>gente en calle sin capa
+      de rodadura</em>—, y lo primero que enseña no es cuántas calles están sin
+      asfaltar: <strong>es cuántas no tienen el dato</strong>.
+    </p>
+  </div>
+  <div class="apilada" id="apilada"></div>
+  <div class="rod-leyenda" id="rod-leyenda"></div>
+  <p class="cita" style="margin-top:12px" id="rod-pie"></p>
+
+  <h2 class="gr-eyebrow" id="fuentes">Las cuatro fuentes</h2>
+  <div id="fuentes-lista"></div>
+
+  <h2 class="gr-eyebrow" id="falta">Lo que esta ventana todavía no contesta</h2>
+  <div class="prosa">
+    <div class="gr-nota gr-nota--aviso">
+      <span class="cabeza" data-ico="aviso"></span>
+      <strong>Cuánto avanzó el levantamiento esta semana. Quién tocó qué, y
+      cuándo.</strong>
+    </div>
+    <p>
+      Cada archivo de arriba es una foto sin antes. Se puede decir qué parte de
+      un campo está rellena hoy, pero no si hace un mes estaba peor o mejor, ni
+      quién lo rellenó. Para eso hace falta histórico: la base de datos del
+      encargo, con los ámbitos y el método versionados.
+    </p>
+    <p>
+      Mientras tanto esta página ya sirve para lo que más falta hacía:
+      <strong>saber de dónde salió cada cifra y dónde no mirar todavía</strong>.
+    </p>
+    <div class="gr-nota">
+      <strong>Lo derivado de OpenStreetMap es ODbL.</strong> Eso arrastra la
+      licencia a cualquier base que salga de ahí, con atribución y con la misma
+      licencia. Es la razón de que, cuando se monte la base, lo de OSM tenga que
+      vivir en sus propias tablas desde el primer día.
+    </div>
+  </div>
+
+  <footer id="pie"></footer>
+</div>
+
+<script src="datos/levantamiento.js?v=1794196939"></script>
+<script src="comun.js?v=1793914880"></script>
+<script src="iconos.js?v=1793914880"></script>
+<script>
+(function () {
+  var L = window.LLACTA_LEV;
+  var F = window.LL;
+  var sello = document.getElementById('sello');
+  if (!L || !L.fuentes) {
+    sello.innerHTML = '<span class="gr-chip gr-chip--aviso">No se pudo cargar ' +
+      'datos/levantamiento.js — corre scripts/levantamiento.py</span>';
+    return;
+  }
+
+  var capas = L.fuentes.reduce(function (s, f) { return s + f.capas.length; }, 0);
+  sello.innerHTML =
+    '<span class="gr-chip gr-chip--info">Revisado el ' + F.esc(F.fecha(L.generado)) + '</span>' +
+    '<span class="gr-chip">' + L.fuentes.length + ' fuentes · ' + capas + ' capas</span>' +
+    '<span class="gr-chip gr-chip--aviso">Prototipo</span>';
+
+  /* ------------------------------------------------------- la rodadura */
+  var TONOS = {
+    'Asfalto': 'var(--gr-s1)', 'Adoquinado': 'var(--gr-s6)',
+    'Empedrado': 'var(--gr-s4)', 'Lastrado': 'var(--gr-s2)',
+    'Tierra': 'var(--gr-s7)', 'Sin dato': 'var(--gr-nada)'
+  };
+  var rod = L.rodadura;
+  if (rod) {
+    // El orden no es el de mayor a menor: va de lo mejor rodado a lo peor, y
+    // el hueco al final. Una barra apilada ordenada por tamaño no se puede
+    // leer como una escala; ordenada por calidad, sí.
+    var orden = ['Asfalto', 'Adoquinado', 'Empedrado', 'Lastrado', 'Tierra', 'Sin dato'];
+    var clases = orden.map(function (n) {
+      return rod.clases.filter(function (c) { return c.clase === n; })[0];
+    }).filter(Boolean);
+
+    document.getElementById('apilada').innerHTML = clases.map(function (c) {
+      return '<i style="flex:' + c.pct + ';background:' + (TONOS[c.clase] || 'var(--gr-nada)') +
+        '" title="' + F.esc(c.clase) + ': ' + F.N1.format(c.km) + ' km"></i>';
+    }).join('');
+
+    document.getElementById('rod-leyenda').innerHTML = clases.map(function (c) {
+      return '<span' + (c.sin_dato ? ' class="hueco"' : '') + '><i style="background:' +
+        (TONOS[c.clase] || 'var(--gr-nada)') + '"></i>' + F.esc(c.clase) + ' · ' +
+        F.N1.format(c.km) + ' km · ' + F.N1.format(c.pct) + ' %</span>';
+    }).join('');
+
+    var sinDato = clases.filter(function (c) { return c.sin_dato; })[0];
+    var duros = clases.filter(function (c) {
+      return c.clase === 'Asfalto' || c.clase === 'Adoquinado';
+    }).reduce(function (s, c) { return s + c.pct; }, 0);
+    document.getElementById('rod-pie').innerHTML =
+      '<b>Figura 1</b> · Red vial provincial y estatal: ' +
+      F.N.format(rod.total_tramos) + ' tramos, ' + F.N1.format(rod.total_km) +
+      ' km. Solo el <strong>' + F.N1.format(duros) +
+      ' %</strong> está asfaltado o adoquinado' +
+      (sinDato ? ', y <strong>' + F.N1.format(sinDato.pct) + ' %</strong> (' +
+        F.N1.format(sinDato.km) + ' km) no declara de qué es' : '') + '.';
+  }
+
+  /* -------------------------------------------------------- las fuentes */
+  function campo(c, acento) {
+    var flojo = c.pct < 80;
+    return '<div class="campo' + (c.clave ? ' clave' : '') + (flojo ? ' flojo' : '') + '">' +
+      '<b>' + F.esc(c.nombre) + '</b>' +
+      '<span class="medidor"><i style="width:' + c.pct + '%"></i></span>' +
+      '<span class="pc">' + F.N1.format(c.pct) + ' %</span>' +
+      '</div>';
+  }
+
+  document.getElementById('fuentes-lista').innerHTML = L.fuentes.map(function (f) {
+    var capas = f.capas.map(function (c) {
+      // Solo se enseñan los campos que importan: los que sostienen un
+      // indicador, y los que están a medio llenar. Listar los que están al
+      // 100 % enterraría los que no lo están, que son los que hay que mirar.
+      var mirar = (c.campos || []).filter(function (x) {
+        return x.clave || x.pct < 95;
+      }).sort(function (a, b) { return a.pct - b.pct; });
+
+      return '<div class="capa-lev">' +
+        '<div><h4>' + F.esc(c.archivo) + '</h4>' +
+          '<span class="meta">' +
+            (c.registros ? F.N.format(c.registros) + ' registros · ' : '') +
+            F.peso(c.bytes) + ' · ' + F.esc(c.modificado) + '</span></div>' +
+        '<div class="relleno">' +
+          (mirar.length
+            ? mirar.map(function (x) { return campo(x); }).join('')
+            : '<span class="completo">Todos sus campos, completos.</span>') +
+        '</div></div>';
+    }).join('');
+
+    return '<section class="fuente fuente--' + F.esc(f.clave) + '">' +
+      '<h3>' + F.esc(f.nombre) +
+        '<span class="gr-chip' + (f.verificar ? ' gr-chip--aviso' : '') + '">' +
+        F.esc(f.licencia) + '</span></h3>' +
+      '<p>' + F.esc(f.nota) + '</p>' + capas +
+      '</section>';
+  }).join('');
+
+  document.getElementById('pie').textContent =
+    'LLACTA · GADM Riobamba · inventario revisado el ' + F.fecha(L.generado) +
+    '. El relleno de cada campo se cuenta abriendo el archivo, no se declara.';
+})();
+</script>
+</body>
+</html>

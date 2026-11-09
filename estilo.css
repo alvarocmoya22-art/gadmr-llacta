@@ -608,3 +608,64 @@ html{scroll-behavior:smooth}
   pointer-events:none; opacity:.8;
 }
 .lienzo--noche .urbano{stroke:#7E8C99; opacity:.95}
+
+/* ---------------------------------------------------------------------------
+   LEVANTAMIENTO · de dónde viene cada dato y qué tan completo está
+--------------------------------------------------------------------------- */
+.fuente{
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-left:4px solid var(--acento); border-radius:6px;
+  padding:18px 20px; margin-bottom:16px;
+}
+.fuente--osm{--acento:var(--gr-s6)}
+.fuente--gadm{--acento:var(--gr-s8)}
+.fuente--provincial{--acento:var(--gr-aviso)}
+.fuente--inec{--acento:var(--gr-s7)}
+.fuente h3{
+  margin:0 0 4px; font-size:1.12rem; font-weight:700;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.fuente > p{
+  margin:0 0 14px; font-family:var(--prosa); font-size:.92rem;
+  color:var(--gr-tinta-2); max-width:74ch;
+}
+.capa-lev{
+  border-top:1px solid var(--gr-linea); padding:12px 0 2px;
+  display:grid; gap:4px 16px; grid-template-columns:1fr;
+}
+@media (min-width:700px){.capa-lev{grid-template-columns:minmax(0,230px) 1fr}}
+.capa-lev h4{
+  margin:0; font-size:.9rem; font-weight:600; font-family:var(--dato);
+}
+.capa-lev .meta{
+  font-family:var(--dato); font-size:.72rem; color:var(--gr-tinta-3);
+  display:block; margin-top:2px;
+}
+.relleno{display:flex; flex-direction:column; gap:5px}
+.campo{
+  display:grid; grid-template-columns:minmax(0,1fr) 92px 62px;
+  align-items:center; gap:10px; font-size:.78rem;
+}
+.campo b{
+  font-family:var(--dato); font-weight:400; color:var(--gr-tinta-2);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.campo.clave b{color:var(--gr-tinta); font-weight:600}
+.campo .medidor{height:7px; border-radius:3px; background:var(--gr-vacio); overflow:hidden}
+.campo .medidor i{display:block; height:100%; background:var(--acento); border-radius:3px}
+.campo .pc{
+  font-family:var(--dato); font-size:.74rem; text-align:right;
+  font-variant-numeric:tabular-nums; color:var(--gr-tinta-2);
+}
+.campo.flojo .medidor i{background:var(--gr-aviso)}
+.campo.flojo .pc{color:var(--gr-aviso); font-weight:600}
+.completo{font-family:var(--dato); font-size:.76rem; color:var(--gr-tinta-3)}
+
+/* La rodadura: una barra apilada con el hueco marcado. */
+.apilada{display:flex; height:30px; border-radius:4px; overflow:hidden; margin:4px 0 10px}
+.apilada i{display:block; position:relative}
+.apilada i + i{border-left:2px solid var(--gr-superficie)}
+.rod-leyenda{display:flex; flex-wrap:wrap; gap:14px; font-size:.78rem}
+.rod-leyenda span{display:flex; align-items:center; gap:7px; font-family:var(--dato)}
+.rod-leyenda i{width:14px; height:12px; border-radius:2px; display:block}
+.rod-leyenda .hueco{color:var(--gr-aviso); font-weight:600}
