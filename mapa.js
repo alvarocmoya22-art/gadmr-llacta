@@ -20,6 +20,7 @@
   }
 
   var R = window.LLACTA_RED;  // la red vial por cercanía, si está generada
+  var escalaSel = 0;          // qué división del territorio se está usando
   var elegido = 0;            // qué indicador se está pintando
   var encuadre = 'ciudad';    // 'ciudad' o 'canton'
   var vista = 'manzanas';     // 'manzanas' (la gente) o 'calles' (la ciudad)
@@ -102,17 +103,30 @@
      barrio por la forma, pero todo el mundo reconoce «Lizarzaburu». El ancla
      la calculó el script con un punto que cae dentro de la parroquia, no con
      el centroide, que en Pungalá queda fuera de ella. */
-  function rotulos(clase) {
-    return '<g class="rotulos" id="' + clase + '">' +
-      M.parroquias.filter(function (p) { return p.x !== undefined; })
-        .map(function (p) {
-          return '<circle class="punto-rotulo" cx="' + p.x + '" cy="' + p.y +
-              '" r="3"/>' +
-            '<line class="guia" x1="' + p.x + '" y1="' + p.y +
-              '" x2="' + (p.x + 16) + '" y2="' + (p.y - 16) + '"/>' +
-            '<text class="rotulo" x="' + (p.x + 20) + '" y="' + (p.y - 17) + '">' +
-              F.esc(p.n) + '</text>';
-        }).join('') + '</g>';
+  /** La división que se está mirando: `plataformas` o `parroquias`. */
+  function claveEscala() { return E.escalas[escalaSel].clave; }
+  function limites() { return M.limites[claveEscala()] || []; }
+
+  /* Los límites y los nombres se dibujan en capas vacías que se rellenan al
+     vuelo, y no cosidos al SVG: cambiar de escala tiene que cambiar lo que se
+     ve sobre el mapa, no solo la tabla de abajo. Si el mapa siguiera con las
+     parroquias mientras la tabla habla de plataformas, serían dos páginas. */
+  function pintarLimites() {
+    var L = limites();
+    var bordes = L.map(function (p) {
+      return '<path class="par" d="' + p.d + '"/>';
+    }).join('');
+    var nombres = L.filter(function (p) { return p.x !== undefined; })
+      .map(function (p) {
+        return '<circle class="punto-rotulo" cx="' + p.x + '" cy="' + p.y + '" r="3"/>' +
+          '<line class="guia" x1="' + p.x + '" y1="' + p.y +
+            '" x2="' + (p.x + 16) + '" y2="' + (p.y - 16) + '"/>' +
+          '<text class="rotulo" x="' + (p.x + 20) + '" y="' + (p.y - 17) + '">' +
+            F.esc(p.n) + '</text>';
+      }).join('');
+    document.querySelectorAll('.capa-lim').forEach(function (g) { g.innerHTML = bordes; });
+    document.querySelectorAll('.rotulos').forEach(function (g) { g.innerHTML = nombres; });
+    tallarRotulos();
   }
 
   /* El tamaño del rótulo va en unidades del viewBox, así que tiene que
@@ -148,8 +162,10 @@
     '<span class="gr-chip gr-chip--info">Dato del ' + F.esc(F.fecha(D.generado)) + '</span>' +
     '<span class="gr-chip">Método v' + F.esc(D.version_metodo) + '</span>' +
     '<span class="gr-chip">Censo 2022 · INEC</span>' +
-    '<span class="gr-chip">' + E.parroquias.length + ' parroquias · ' +
-      F.N.format(M.manzanas.length) + ' manzanas</span>' +
+    '<span class="gr-chip">' +
+      E.escalas.map(function (s) {
+        return s.unidades.length + ' ' + s.nombre.toLowerCase();
+      }).join(' · ') + ' · ' + F.N.format(M.manzanas.length) + ' manzanas</span>' +
     '<span class="gr-chip gr-chip--aviso">Prototipo · cifras para revisar</span>';
 
   if (C && C.capas) {
@@ -166,6 +182,11 @@
       F.esc(x.nombre.replace('Gente con ', '')) + '</button>';
   }).join('') +
     '<span class="sep"></span>' +
+    '<span class="vistas">' +
+      E.escalas.map(function (s, i) {
+        return '<button class="pastilla" data-escala="' + i + '" aria-pressed="' +
+          (i === escalaSel) + '">' + F.esc(s.nombre) + '</button>';
+      }).join('') + '</span>' +
     (R ? '<span class="vistas">' +
       '<button class="pastilla" data-vista="manzanas" aria-pressed="true">Manzanas</button>' +
       '<button class="pastilla" data-vista="calles" aria-pressed="false">Calles</button>' +
@@ -190,10 +211,7 @@
   for (var i = 0; i < M.manzanas.length; i++) {
     svg += '<path class="mz" data-i="' + i + '" d="' + M.manzanas[i].d + '"/>';
   }
-  for (var j = 0; j < M.parroquias.length; j++) {
-    svg += '<path class="par" d="' + M.parroquias[j].d + '"/>';
-  }
-  svg += rotulos('r1') + '</svg>';
+  svg += '<g class="capa-lim"></g><g class="rotulos"></g></svg>';
   // La escala y el norte se reponen aquí: `caja-mapa` se reescribe entera al
   // dibujar, y si el aparejo viviera solo en el HTML desaparecería.
   document.getElementById('caja-mapa').innerHTML = svg +
@@ -218,10 +236,7 @@
       s += '<polyline class="tramo-via" data-i="' + i + '" points="' +
         R.tramos[i].p + '"/>';
     }
-    for (var j = 0; j < M.parroquias.length; j++) {
-      s += '<path class="par" d="' + M.parroquias[j].d + '"/>';
-    }
-    s += rotulos('r2') + '</svg>';
+    s += '<g class="capa-lim"></g><g class="rotulos"></g></svg>';
     caja.insertAdjacentHTML('afterbegin', s);
     vias = caja.querySelectorAll('#svg-red .tramo-via');
   }
@@ -398,7 +413,11 @@
         o.setAttribute('aria-pressed', String(+o.dataset.ind === elegido));
       });
       pintar();
-      tablaParroquias();
+      tablaEscala();
+    } else if (b.dataset.escala !== undefined) {
+      escalaSel = +b.dataset.escala;
+      pintarLimites();
+      tablaEscala();
     } else if (b.dataset.vista !== undefined) {
       vista = b.dataset.vista;
       this.querySelectorAll('[data-vista]').forEach(function (o) {
@@ -406,8 +425,8 @@
       });
       cambiarVista();
       pintar();
+      pintarLimites();
       aparejo();
-      tallarRotulos();
     } else {
       encuadre = b.dataset.enc;
       this.querySelectorAll('[data-enc]').forEach(function (o) {
@@ -437,7 +456,8 @@
     var m = M.manzanas[+p.dataset.i];
     var pct = m.p[elegido];
     globo.innerHTML =
-      '<span class="donde">' + F.esc(m.r || 'Fuera de parroquia') + '</span>' +
+      '<span class="donde">' + F.esc((m.u && m.u[escalaSel]) ||
+        ('Fuera de ' + E.escalas[escalaSel].nombre.toLowerCase())) + '</span>' +
       '<b>' + F.N.format(m.h) + '</b> habitantes<br>' +
       (pct === 0
         ? 'Sin cobertura'
@@ -470,7 +490,8 @@
       F.N1.format(pct) + ' %</span></td>';
   }
 
-  function tablaParroquias() {
+  function tablaEscala() {
+    var esc = E.escalas[escalaSel];
     E.indicadores.forEach(function (x, n) {
       var th = document.getElementById('th-' + (n + 1));
       th.style.textAlign = 'right';
@@ -478,17 +499,35 @@
         '<br><span style="font-weight:400">' + F.N.format(x.radio_m) + ' m</span>';
       th.classList.toggle('viva', n === elegido);
     });
-    document.getElementById('filas-par').innerHTML = E.parroquias.map(function (p) {
+    document.getElementById('th-unidad').textContent = esc.nombre.replace(/s$/, '');
+
+    document.getElementById('filas-par').innerHTML = esc.unidades.map(function (p) {
       return '<tr>' +
         '<td><strong>' + F.esc(p.nombre) + '</strong>' +
-          '<span class="campos">' + F.esc(p.tipo) + ' · ' +
-          F.N.format(p.manzanas) + ' manzanas · ' +
-          F.N.format(Math.round(p.area_ha)) + ' ha</span></td>' +
+          '<span class="campos">' + F.esc(p.sub) + ' · ' +
+          F.N.format(p.manzanas) + ' manzanas' +
+          (p.area_ha ? ' · ' + F.N.format(Math.round(p.area_ha)) + ' ha' : '') +
+          '</span></td>' +
         '<td class="n">' + F.N.format(p.poblacion_en_manzana) + '</td>' +
         '<td class="n">' + F.N.format(p.equipamientos) + '</td>' +
         E.indicadores.map(function (x) { return celda(p.indicadores[x.clave]); }).join('') +
         '</tr>';
     }).join('');
+
+    document.getElementById('titulo-escala').innerHTML =
+      'Las ' + esc.unidades.length + ' ' + F.esc(esc.nombre.toLowerCase());
+    document.getElementById('nota-escala').innerHTML =
+      F.esc(esc.nota) + '. Cubre <strong>' +
+      F.N.format(esc.poblacion_cubierta) + '</strong> habitantes, el ' +
+      F.N1.format(esc.pct_del_total) + ' % de los ' +
+      F.N.format(E.poblacion_medida) + ' que este observatorio mide' +
+      (esc.sin_manzanas.length
+        ? '. Sin ninguna manzana del INEC: ' + F.esc(esc.sin_manzanas.join(', '))
+        : '') + '.';
+
+    document.querySelectorAll('[data-escala]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(+b.dataset.escala === escalaSel));
+    });
   }
 
   /* ------------------------------------------------------ las tarjetas */
@@ -566,8 +605,11 @@
         (b === 0 ? 'url(#sc' + cual + ')' : muestra(b, cual)) +
         '" d="' + cubos[b] + '"/>';
     }
-    for (var q = 0; q < M.parroquias.length; q++) {
-      s += '<path class="par-l" d="' + M.parroquias[q].d + '"/>';
+    for (var q = 0; q < M.limites.parroquias.length; q++) {
+      // Los paneles llevan siempre las parroquias: son la única escala que
+      // dibuja el cantón entero, y una miniatura necesita el contorno
+      // completo para que se reconozca de qué ciudad se habla.
+      s += '<path class="par-l" d="' + M.limites.parroquias[q].d + '"/>';
     }
     return s + '</svg>';
   }
@@ -583,10 +625,11 @@
       '</article>';
   }).join('');
 
+  cambiarVista();
   pintar();
+  pintarLimites();   // dibuja los límites y los nombres de la escala elegida
   aparejo();
-  tallarRotulos();
-  tablaParroquias();
+  tablaEscala();
 })();
 
 /* El seguidor de la cinta: marca en qué sección estás mientras bajas.
