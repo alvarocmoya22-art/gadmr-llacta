@@ -34,6 +34,12 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent
 DATOS = RAIZ.parent / "gadmr-visor-territorio" / "public" / "datos"
 
+# De donde se descargan de verdad. No se copia ni un archivo a este
+# repositorio: el visor ya las publica con el CORS abierto, asi que el boton
+# de descarga apunta al original. Copiarlas aqui significaria tener dos
+# versiones que se separan en cuanto el visor actualice una.
+URL_PUBLICA = "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos"
+
 # De donde viene cada cosa. Va declarado: no se deduce del archivo, y lo que
 # no esta confirmado se marca para que alguien lo confirme.
 FUENTES = [
@@ -102,6 +108,7 @@ def mirar(ruta: Path) -> dict:
     d = leer(ruta)
     ficha = {
         "archivo": ruta.name,
+        "descarga": f"{URL_PUBLICA}/{ruta.name}",
         "bytes": ruta.stat().st_size,
         "modificado": datetime.fromtimestamp(
             ruta.stat().st_mtime, tz=timezone.utc).date().isoformat(),
@@ -217,7 +224,8 @@ def main() -> None:
             f"{rod['total_km']:>8,.1f} km")
         log()
 
-    cuerpo = {"generado": hoy, "fuentes": fuentes, "rodadura": rod}
+    cuerpo = {"generado": hoy, "origen_publicado": URL_PUBLICA,
+              "fuentes": fuentes, "rodadura": rod}
     destino = RAIZ / "datos"
     destino.mkdir(exist_ok=True)
     (destino / "levantamiento.json").write_text(

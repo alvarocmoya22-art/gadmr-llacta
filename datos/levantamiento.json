@@ -1,5 +1,6 @@
 {
   "generado": "2026-11-08",
+  "origen_publicado": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos",
   "fuentes": [
     {
       "clave": "osm",
@@ -9,6 +10,7 @@
       "capas": [
         {
           "archivo": "edificios.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/edificios.geojson",
           "bytes": 1601417,
           "modificado": "2026-10-01",
           "registros": 6039,
@@ -38,6 +40,7 @@
         },
         {
           "archivo": "red.json",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/red.json",
           "bytes": 2062475,
           "modificado": "2026-10-15",
           "registros": 4,
@@ -50,6 +53,7 @@
         },
         {
           "archivo": "calles.json",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/calles.json",
           "bytes": 159724,
           "modificado": "2026-09-14",
           "registros": 1017,
@@ -68,6 +72,7 @@
       "capas": [
         {
           "archivo": "equipamientos.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/equipamientos.geojson",
           "bytes": 429872,
           "modificado": "2026-09-30",
           "registros": 1083,
@@ -133,6 +138,7 @@
         },
         {
           "archivo": "proyectos.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/proyectos.geojson",
           "bytes": 21499,
           "modificado": "2026-10-01",
           "registros": 41,
@@ -234,6 +240,7 @@
         },
         {
           "archivo": "catastro.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/catastro.geojson",
           "bytes": 14995340,
           "modificado": "2026-10-05",
           "registros": 41681,
@@ -270,6 +277,7 @@
         },
         {
           "archivo": "barrios.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/barrios.geojson",
           "bytes": 124209,
           "modificado": "2026-09-30",
           "registros": 212,
@@ -312,6 +320,7 @@
         },
         {
           "archivo": "plataformas.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/plataformas.geojson",
           "bytes": 37482,
           "modificado": "2026-09-30",
           "registros": 18,
@@ -365,6 +374,7 @@
         },
         {
           "archivo": "limite_urbano.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/limite_urbano.geojson",
           "bytes": 28729,
           "modificado": "2026-10-23",
           "registros": 14,
@@ -394,6 +404,7 @@
         },
         {
           "archivo": "parroquias.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/parroquias.geojson",
           "bytes": 19964,
           "modificado": "2026-09-30",
           "registros": 5,
@@ -423,6 +434,7 @@
         },
         {
           "archivo": "parroquias_canton.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/parroquias_canton.geojson",
           "bytes": 230847,
           "modificado": "2026-10-30",
           "registros": 17,
@@ -477,6 +489,7 @@
         },
         {
           "archivo": "clasificacion_suelo.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/clasificacion_suelo.geojson",
           "bytes": 261490,
           "modificado": "2026-10-30",
           "registros": 41,
@@ -533,6 +546,7 @@
       "capas": [
         {
           "archivo": "red_vial.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/red_vial.geojson",
           "bytes": 649776,
           "modificado": "2026-10-23",
           "registros": 1284,
@@ -583,6 +597,7 @@
       "capas": [
         {
           "archivo": "manzanas.geojson",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/manzanas.geojson",
           "bytes": 2048808,
           "modificado": "2026-10-30",
           "registros": 3757,
@@ -624,6 +639,7 @@
         },
         {
           "archivo": "poblacion.json",
+          "descarga": "https://alvarocmoya22-art.github.io/gadmr-visor-territorio/datos/poblacion.json",
           "bytes": 18068,
           "modificado": "2026-10-05",
           "registros": null,

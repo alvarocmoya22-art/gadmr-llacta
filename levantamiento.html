@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=1794196965">
+<link rel="stylesheet" href="estilo.css?v=1794198071">
 </head>
 <body>
 
@@ -56,6 +56,16 @@
   <p class="cita" style="margin-top:12px" id="rod-pie"></p>
 
   <h2 class="gr-eyebrow" id="fuentes">Las cuatro fuentes</h2>
+  <div class="llevar">
+    <p class="que">
+      <strong>Llévate esto.</strong> Cada capa se descarga de donde el visor la
+      publica, sin copia intermedia. El inventario de abajo —qué campo está
+      relleno y cuánto— sale como tabla para abrir en Excel o como JSON.
+    </p>
+    <button class="gr-btn" id="bajar-csv">Relleno de campos (CSV)</button>
+    <button class="gr-btn gr-btn--secundario" id="bajar-rod">Rodadura (CSV)</button>
+    <a class="gr-btn gr-btn--secundario" href="datos/levantamiento.json" download>Inventario (JSON)</a>
+  </div>
   <div id="fuentes-lista"></div>
 
   <h2 class="gr-eyebrow" id="falta">Lo que esta ventana todavía no contesta</h2>
@@ -86,7 +96,7 @@
   <footer id="pie"></footer>
 </div>
 
-<script src="datos/levantamiento.js?v=1794196939"></script>
+<script src="datos/levantamiento.js?v=1794198044"></script>
 <script src="comun.js?v=1793914880"></script>
 <script src="iconos.js?v=1793914880"></script>
 <script>
@@ -166,10 +176,15 @@
       }).sort(function (a, b) { return a.pct - b.pct; });
 
       return '<div class="capa-lev">' +
-        '<div><h4>' + F.esc(c.archivo) + '</h4>' +
+        '<div class="ficha-capa"><div><h4>' + F.esc(c.archivo) + '</h4>' +
           '<span class="meta">' +
             (c.registros ? F.N.format(c.registros) + ' registros · ' : '') +
             F.peso(c.bytes) + ' · ' + F.esc(c.modificado) + '</span></div>' +
+          (c.descarga
+            ? '<a class="gr-btn gr-btn--secundario" href="' + F.esc(c.descarga) +
+              '" download>Descargar</a>'
+            : '') +
+        '</div>' +
         '<div class="relleno">' +
           (mirar.length
             ? mirar.map(function (x) { return campo(x); }).join('')
@@ -184,6 +199,59 @@
       '<p>' + F.esc(f.nota) + '</p>' + capas +
       '</section>';
   }).join('');
+
+  /* Las tablas, generadas aquí y no guardadas como archivos.
+   *
+   * Es el mismo dato que ya está en la página: escribirlo también en disco
+   * daría dos copias que se separan en cuanto una se regenere y la otra no.
+   *
+   * Separador de punto y coma y coma decimal, que es lo que Excel en español
+   * espera: con comas, un «81,2» parte la fila en dos columnas. Y con marca
+   * de orden de bytes delante, o las tildes salen rotas al abrirlo. */
+  function bajar(nombre, filas) {
+    var texto = '\ufeff' + filas.map(function (f) {
+      return f.map(function (celda) {
+        var s = String(celda == null ? '' : celda);
+        return /[;"\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+      }).join(';');
+    }).join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([texto], { type: 'text/csv;charset=utf-8' }));
+    a.download = nombre;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+  var coma = function (n) { return String(n).replace('.', ','); };
+
+  document.getElementById('bajar-csv').addEventListener('click', function () {
+    var filas = [['fuente', 'licencia', 'archivo', 'registros', 'bytes',
+                  'modificado', 'campo', 'con_dato', 'relleno_pct']];
+    L.fuentes.forEach(function (f) {
+      f.capas.forEach(function (c) {
+        (c.campos || []).forEach(function (x) {
+          filas.push([f.nombre, f.licencia, c.archivo, c.registros, c.bytes,
+                      c.modificado, x.nombre, x.con_dato, coma(x.pct)]);
+        });
+      });
+    });
+    bajar('llacta_relleno_de_campos_' + L.generado + '.csv', filas);
+  });
+
+  var botonRod = document.getElementById('bajar-rod');
+  if (rod) {
+    botonRod.addEventListener('click', function () {
+      var filas = [['clase', 'tramos', 'km', 'pct_del_total', 'es_hueco']];
+      rod.clases.forEach(function (c) {
+        filas.push([c.clase, c.tramos, coma(c.km), coma(c.pct), c.sin_dato ? 'si' : 'no']);
+      });
+      filas.push(['TOTAL', rod.total_tramos, coma(rod.total_km), coma(100), '']);
+      bajar('llacta_rodadura_' + L.generado + '.csv', filas);
+    });
+  } else {
+    botonRod.remove();
+  }
 
   document.getElementById('pie').textContent =
     'LLACTA · GADM Riobamba · inventario revisado el ' + F.fecha(L.generado) +

@@ -669,3 +669,18 @@ html{scroll-behavior:smooth}
 .rod-leyenda span{display:flex; align-items:center; gap:7px; font-family:var(--dato)}
 .rod-leyenda i{width:14px; height:12px; border-radius:2px; display:block}
 .rod-leyenda .hueco{color:var(--gr-aviso); font-weight:600}
+
+/* Llevarse la información: los botones de descarga del levantamiento. */
+.capa-lev{grid-template-areas:none}
+.capa-lev .ficha-capa{display:flex; flex-direction:column; gap:7px; align-items:flex-start}
+.llevar{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-radius:6px; padding:14px 16px; margin-bottom:18px;
+}
+.llevar .que{
+  font-family:var(--prosa); font-size:.88rem; color:var(--gr-tinta-2);
+  margin:0 auto 0 0; max-width:52ch;
+}
+.llevar .que strong{font-family:var(--ui); color:var(--gr-tinta)}
+.gr-btn--secundario:hover{background:var(--gr-azul-100)}
