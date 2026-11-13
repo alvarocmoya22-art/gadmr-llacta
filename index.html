@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=1794198071">
+<link rel="stylesheet" href="estilo.css?v=1794505081">
 </head>
 <body>
 
@@ -31,12 +31,14 @@
     <a class="sigla" href="#arriba">LLACTA</a>
     <a class="salto" href="#mapa">El mapa</a>
     <a class="salto" href="#comparados">Los tres</a>
+    <a class="salto" href="#ladoalado">Lado a lado</a>
     <a class="salto" href="#hallazgo">El hueco</a>
     <a class="salto" href="#parroquias">Las unidades</a>
     <a class="salto" href="#cifras">Las cifras</a>
     <a class="salto" href="#metodo">El método</a>
     <a class="salto" href="levantamiento.html">Levantamiento</a>
     <span class="fuera">
+      <a href="https://alvarocmoya22-art.github.io/gadmr-visor-territorio/">ÑAWI</a>
       <a href="mapoteca.html">Mapoteca</a>
       <a href="https://alvarocmoya22-art.github.io/gadmr-chaski/">CHASKI</a>
     </span>
@@ -50,10 +52,10 @@
   <div class="ventanas ventanas--cabecera">
     <a class="ventana ventana--1"
        href="https://alvarocmoya22-art.github.io/gadmr-visor-territorio/">
-      <h3><span class="ico-caja" data-ico="visor"></span>Visor <span class="flecha">→</span></h3>
+      <h3><span class="ico-caja" data-ico="nawi"></span>ÑAWI <span class="flecha">→</span></h3>
       <p>Ver el territorio. Las capas sobre el mapa, las isócronas a pie por la
          calle real y la edificación en 3D.</p>
-      <div class="pie">Ver · publicado</div>
+      <div class="pie">«ojo» en kichwa · publicado</div>
     </a>
     <a class="ventana ventana--2"
        href="https://alvarocmoya22-art.github.io/gadmr-chaski/">
@@ -111,6 +113,26 @@
     indicadores no se compara: se recuerda, y mal.
   </p>
 
+  <!-- ======================================= las plataformas, lado a lado -->
+  <h2 class="gr-eyebrow" id="ladoalado" style="margin-top:34px">
+    Las plataformas, lado a lado</h2>
+  <p class="entrada">
+    La tabla de abajo dice qué plataforma está peor. No dice <i>qué forma</i>
+    tiene estar peor. Tres plataformas al mismo encuadre y a la misma escala, y
+    la forma aparece: si la gente sin servicio está en el borde, en una esquina
+    o repartida por todas partes no se arregla con la misma obra.
+  </p>
+
+  <div class="mando-lal">
+    <div class="pastillas-lal" id="lal-indicador" role="group"
+         aria-label="Indicador de los paneles"></div>
+    <p class="lal-ayuda">Elija hasta tres. Al marcar la cuarta se suelta la más
+      antigua.</p>
+  </div>
+  <div class="tira-lal" id="lal-tira" role="group" aria-label="Elegir plataformas"></div>
+  <div class="comparables" id="lal-paneles"></div>
+  <p class="cita" style="margin-top:10px" id="lal-pie"></p>
+
   <!-- ==================================================== el hallazgo -->
   <h2 class="gr-eyebrow" id="hallazgo">Lo primero que hay que decir</h2>
   <div class="prosa">
@@ -145,9 +167,10 @@
           <th scope="col" id="th-unidad">Unidad</th>
           <th scope="col" style="text-align:right">Habitantes<br>en manzana</th>
           <th scope="col" style="text-align:right">Equip.</th>
-          <th scope="col" id="th-1"></th>
-          <th scope="col" id="th-2"></th>
-          <th scope="col" id="th-3"></th>
+          <!-- Las columnas de indicador las escribe mapa.js: eran tres fijas
+               y ahora son quince, una por cada fila de la norma que fija
+               radio. Escribirlas aqui obligaria a tocar el HTML cada vez que
+               la ordenanza cambie, que es justo lo que no debe pasar. -->
         </tr>
       </thead>
       <tbody id="filas-par"></tbody>
@@ -247,13 +270,13 @@
   <footer id="pie"></footer>
 </div>
 
-<script src="datos/indicadores.js?v=1793828978"></script>
-<script src="datos/escalas.js?v=1794196642"></script>
+<script src="datos/indicadores.js?v=1794504923"></script>
+<script src="datos/escalas.js?v=1794504975"></script>
 <script src="datos/capas.js?v=1794197023"></script>
-<script src="datos/mapa.js?v=1794196642"></script>
+<script src="datos/mapa.js?v=1794504975"></script>
 <script src="datos/red.js?v=1793914404"></script>
 <script src="comun.js?v=1793914880"></script>
-<script src="iconos.js?v=1793914880"></script>
-<script src="mapa.js?v=1794196703"></script>
+<script src="iconos.js?v=1794501253"></script>
+<script src="mapa.js?v=1794505081"></script>
 </body>
 </html>

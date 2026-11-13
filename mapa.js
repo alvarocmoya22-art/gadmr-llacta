@@ -203,12 +203,34 @@
   }
 
   /* -------------------------------------------------------- los mandos */
-  var mandos = D.indicadores.map(function (x, i) {
-    return '<button class="pastilla" data-ind="' + i + '" aria-pressed="' +
-      (i === elegido) + '" style="--acento-sel:var(--gr-' + serie(i) + ')">' +
-      ICONOS.svg(ICONOS.deIndicador(x.clave), 17) +
-      F.esc(x.nombre.replace('Gente con ', '')) + '</button>';
-  }).join('') +
+  /* El mando del indicador, agrupado por radio.
+   *
+   * Eran tres pastillas; ahora son quince indicadores y una fila de quince
+   * botones deja de ser un mando. Peor: el tono de serie se repetiria a
+   * partir del noveno y el color dejaria de nombrar una sola cosa.
+   *
+   * Los dos grupos NO son una comodidad de interfaz, son el hallazgo: lo que
+   * la ordenanza manda tener a 400-800 metros no llega al 60 % de la gente,
+   * y lo que admite 2.000-3.000 pasa del 75 %. Riobamba esta servida a
+   * escala de ciudad y desatendida a escala de barrio, y el desplegable
+   * obliga a leerlo antes de elegir. */
+  function opcionesIndicador() {
+    var cerca = '', lejos = '';
+    for (var i = 0; i < D.indicadores.length; i++) {
+      var x = D.indicadores[i];
+      var o = '<option value="' + i + '"' + (i === elegido ? ' selected' : '') + '>' +
+        F.esc(x.nombre.replace('Gente con ', '')) + ' · ' +
+        F.N.format(x.radio_m) + ' m · ' + F.N1.format(x.valor_pct) + ' %</option>';
+      if (x.radio_m <= 1000) cerca += o; else lejos += o;
+    }
+    return '<optgroup label="A pie, en el barrio · 400 a 800 m">' + cerca + '</optgroup>' +
+      '<optgroup label="A escala de ciudad · 2.000 a 3.000 m">' + lejos + '</optgroup>';
+  }
+
+  var mandos =
+    '<label class="mando-ind"><span class="fuera-pantalla">Indicador</span>' +
+    '<select id="sel-ind" aria-label="Indicador">' + opcionesIndicador() + '</select>' +
+    '</label>' +
     '<span class="sep"></span>' +
     '<span class="vistas">' +
       E.escalas.map(function (s, i) {
@@ -222,6 +244,13 @@
     '<button class="pastilla" data-enc="ciudad" aria-pressed="true">La ciudad</button>' +
     '<button class="pastilla" data-enc="canton" aria-pressed="false">Todo el cantón</button>';
   document.getElementById('mandos').innerHTML = mandos;
+  document.getElementById('sel-ind').addEventListener('change', function (ev) {
+    elegido = +ev.target.value;
+    cambiarVista();
+    pintar();
+    pintarLimites();
+    tablaEscala();
+  });
 
   /* ---------------------------------------------------------- el dibujo */
   var vb = M.viewBox[encuadre];
@@ -525,13 +554,21 @@
 
   function tablaEscala() {
     var esc = E.escalas[escalaSel];
-    E.indicadores.forEach(function (x, n) {
-      var th = document.getElementById('th-' + (n + 1));
+    /* Las columnas de indicador se escriben aqui y no en el HTML: eran tres
+       y ahora son quince. Una tabla con la ordenanza dentro no puede tener el
+       numero de columnas escrito a mano en otro archivo. */
+    var fijas = document.getElementById('th-unidad').parentNode;
+    while (fijas.children.length > 3) fijas.removeChild(fijas.lastChild);
+    for (var n = 0; n < E.indicadores.length; n++) {
+      var x = E.indicadores[n];
+      var th = document.createElement('th');
+      th.scope = 'col';
       th.style.textAlign = 'right';
       th.innerHTML = F.esc(x.nombre.replace('Gente con ', '')) +
         '<br><span style="font-weight:400">' + F.N.format(x.radio_m) + ' m</span>';
-      th.classList.toggle('viva', n === elegido);
-    });
+      if (n === elegido) th.classList.add('viva');
+      fijas.appendChild(th);
+    }
     document.getElementById('th-unidad').textContent = esc.nombre.replace(/s$/, '');
 
     document.getElementById('filas-par').innerHTML = esc.unidades.map(function (p) {
@@ -647,7 +684,7 @@
     return s + '</svg>';
   }
 
-  document.getElementById('paneles').innerHTML = D.indicadores.map(function (x, i) {
+  document.getElementById('paneles').innerHTML = D.indicadores.slice(0, 3).map(function (x, i) {
     return '<article class="panel panel--' + (i + 1) + '">' +
       '<h3>' + ICONOS.svg(ICONOS.deIndicador(x.clave), 19) +
         F.esc(x.nombre.replace('Gente con ', '').replace(/^un /, '').replace(/^una /, '')) +
@@ -657,6 +694,241 @@
         ' hab · ' + F.N.format(x.radio_m) + ' m</span></p>' +
       '</article>';
   }).join('');
+
+  /* ===================== LAS PLATAFORMAS, LADO A LADO =====================
+   *
+   * El mismo indicador, tres plataformas, el mismo encuadre y la misma escala.
+   *
+   * POR QUE NO SE PINTA EL PORCENTAJE SINO LA GENTE. Un mapa de «% cubierto»
+   * da el mismo tono a una manzana de ochocientos habitantes que a una de
+   * ocho, y eso convierte el suelo vacío en un problema y el barrio lleno en
+   * una mancha más. Aquí cada manzana se pinta por CUANTAS PERSONAS suyas se
+   * quedan fuera del radio: es el número con el que se decide dónde va la
+   * siguiente obra.
+   *
+   * POR QUE EL MISMO LADO PARA LOS TRES. Si cada panel se ajustara a su
+   * plataforma, la pequeña saldría ampliada y parecería tan extensa como la
+   * grande: una comparación en la que el tamaño miente. Se toma el lado de la
+   * mayor de las elegidas y se usa para todas.
+   *
+   * NO HAY DATO NUEVO. Los habitantes y el porcentaje cubierto de cada manzana
+   * ya viajan para el mapa de arriba, y la plataforma de cada una también.
+   * Todo esto es aritmética en el navegador: cero bytes añadidos a la descarga.
+   */
+  (function ladoALado() {
+    var tira = document.getElementById('lal-tira');
+    var zona = document.getElementById('lal-paneles');
+    var mando = document.getElementById('lal-indicador');
+    var pie = document.getElementById('lal-pie');
+    if (!tira || !zona || !mando) return;
+
+    /* Personas sin cobertura por manzana. Seis escalones, los mismos para las
+       dieciocho plataformas: si cada panel llevara su propia escala, el color
+       dejaria de significar lo mismo de un panel al de al lado, que es
+       justamente lo que esta seccion existe para permitir. */
+    var CORTES_LAL = [0, 10, 25, 50, 100, 200, 1e9];
+    var ROTULOS_LAL = ['nadie', '1–10', '11–25', '26–50', '51–100', '101–200', 'más de 200'];
+    function tramoLal(personas) {
+      for (var i = 0; i < CORTES_LAL.length; i++) if (personas <= CORTES_LAL[i]) return i;
+      return CORTES_LAL.length - 1;
+    }
+
+    /** La caja que encierra un trazo ya proyectado, en unidades del viewBox. */
+    function encajar(d, caja) {
+      var re = /(-?[\d.]+),(-?[\d.]+)/g, m;
+      while ((m = re.exec(d))) {
+        var x = +m[1], y = +m[2];
+        if (x < caja[0]) caja[0] = x;
+        if (y < caja[1]) caja[1] = y;
+        if (x > caja[2]) caja[2] = x;
+        if (y > caja[3]) caja[3] = y;
+      }
+    }
+
+    // ------------------------------------------------ el indice por plataforma
+    var porNombre = {};
+    for (var k = 0; k < M.manzanas.length; k++) {
+      var mz = M.manzanas[k];
+      var nom = mz.u && mz.u[0];
+      if (!nom) continue;                     // manzana fuera del casco urbano
+      var P = porNombre[nom];
+      if (!P) {
+        P = porNombre[nom] = {
+          nombre: nom,
+          letra: nom.replace(/^Plataforma\s*/i, ''),
+          manzanas: [], hab: 0, sin: [0, 0, 0],
+          caja: [Infinity, Infinity, -Infinity, -Infinity]
+        };
+      }
+      P.manzanas.push(mz);
+      P.hab += mz.h;
+      for (var j = 0; j < 3; j++) P.sin[j] += mz.h * (100 - mz.p[j]) / 100;
+      encajar(mz.d, P.caja);
+    }
+
+    // Equipamientos y lectura salen de las escalas, que ya los traen contados.
+    var escPlat = null;
+    for (var e = 0; e < E.escalas.length; e++) {
+      if (E.escalas[e].clave === 'plataformas') escPlat = E.escalas[e];
+    }
+    if (escPlat) {
+      for (var u = 0; u < escPlat.unidades.length; u++) {
+        var un = escPlat.unidades[u];
+        if (porNombre[un.nombre]) porNombre[un.nombre].unidad = un;
+      }
+    }
+
+    var PLATS = Object.keys(porNombre).map(function (n) { return porNombre[n]; })
+      .sort(function (a, b) { return a.letra.localeCompare(b.letra, 'es'); });
+    if (!PLATS.length) return;
+
+    var indLal = 0;        // el indicador de esta seccion, independiente del mapa
+    var elegidas = [];     // hasta tres, en el orden en que se marcaron
+    var aMano = false;     // si el usuario ya eligio, no se le pisa la seleccion
+
+    function peores(n) {
+      return PLATS.slice().sort(function (a, b) {
+        return b.sin[indLal] - a.sin[indLal];
+      }).slice(0, n).map(function (p) { return p.nombre; });
+    }
+
+    // ------------------------------------------------------------- el dibujo
+    function lamina(P, lado) {
+      var cx = (P.caja[0] + P.caja[2]) / 2, cy = (P.caja[1] + P.caja[3]) / 2;
+      var vb = [cx - lado / 2, cy - lado / 2, lado, lado];
+      var cubos = ['', '', '', '', '', '', ''];
+      for (var i = 0; i < P.manzanas.length; i++) {
+        var m = P.manzanas[i];
+        cubos[tramoLal(m.h * (100 - m.p[indLal]) / 100)] += m.d;
+      }
+      var rampa = rampaDe(serie(indLal));
+      var s = '<svg class="lamina" viewBox="' + vb.join(' ') + '" role="img" ' +
+        'aria-label="' + F.esc(P.nombre) + ': personas sin cobertura por manzana. ' +
+        'La tabla de las unidades dice lo mismo en texto.">';
+      for (var b = 0; b < cubos.length; b++) {
+        if (!cubos[b]) continue;
+        s += '<path class="mz-l" fill="' +
+          (b === 0 ? 'var(--gr-nada)' : rampa[b - 1]) + '" d="' + cubos[b] + '"/>';
+      }
+      /* Los limites de las demas plataformas dan el contexto: sin ellos, un
+         recorte cuadrado de ciudad no dice en que parte del canton cae. */
+      var lims = M.limites.plataformas || [];
+      for (var q = 0; q < lims.length; q++) {
+        s += '<path class="plat-l' + (lims[q].nombre === P.nombre ? ' suya' : '') +
+          '" d="' + lims[q].d + '"/>';
+      }
+      return s + '</svg>';
+    }
+
+    function pintarPaneles() {
+      var sel = elegidas.map(function (n) { return porNombre[n]; }).filter(Boolean);
+      if (!sel.length) {
+        zona.innerHTML = '';
+        pie.innerHTML = 'Ninguna plataforma marcada.';
+        return;
+      }
+      var lado = 0;
+      for (var i = 0; i < sel.length; i++) {
+        lado = Math.max(lado, sel[i].caja[2] - sel[i].caja[0],
+                              sel[i].caja[3] - sel[i].caja[1]);
+      }
+      lado *= 1.14;                                // un poco de aire alrededor
+      var tono = 'var(--gr-' + serie(indLal) + ')';
+
+      zona.innerHTML = sel.map(function (P) {
+        var sin = Math.round(P.sin[indLal]);
+        var pct = P.hab ? sin / P.hab * 100 : 0;
+        var eq = P.unidad ? P.unidad.equipamientos : null;
+        var lec = P.unidad && P.unidad.indicadores &&
+                  P.unidad.indicadores[D.indicadores[indLal].clave];
+        var aviso = lec && lec.lectura && lec.lectura !== 'medido'
+          ? ' <span class="gr-chip gr-chip--aviso">' +
+            (lec.lectura === 'sin_inventario' ? 'sin inventario' : 'cero medido') + '</span>'
+          : '';
+        return '<article class="comparable" style="--tono:' + tono + '">' +
+          '<h3><span class="letra">' + F.esc(P.letra) + '</span>' +
+            F.esc(P.nombre) + '</h3>' +
+          lamina(P, lado) +
+          '<p class="cifra">' + F.N.format(sin) + '</p>' +
+          '<p class="bajo">personas sin cobertura, el <b>' + F.N1.format(pct) +
+            ' %</b> de las ' + F.N.format(P.hab) + ' que viven aquí' + aviso + '</p>' +
+          '<p class="pie">' + F.N.format(P.manzanas.length) + ' manzanas' +
+            (eq === null || eq === undefined ? '' : ' · ' + F.N.format(eq) + ' equipamientos') +
+            '</p>' +
+          '</article>';
+      }).join('');
+
+      var metros = Math.round(lado * (M.m_por_unidad || 1));
+      pie.innerHTML = '<b>Figura 4</b> · El mismo indicador y el mismo encuadre: ' +
+        F.N.format(metros) + ' m de lado en los ' + sel.length +
+        ' paneles, para que el tamaño no mienta. Cada manzana pintada por ' +
+        'cuántas de sus personas quedan fuera del radio (' +
+        ROTULOS_LAL.slice(1).join(' · ') + '). El trazo grueso es la plataforma ' +
+        'de la que habla el panel; los finos, las demás.';
+    }
+
+    function pintarTira() {
+      tira.innerHTML = PLATS.map(function (P) {
+        var marcada = elegidas.indexOf(P.nombre) >= 0;
+        var sin = Math.round(P.sin[indLal]);
+        return '<button type="button" data-plat="' + F.esc(P.nombre) + '" ' +
+          'aria-pressed="' + marcada + '" title="' + F.esc(P.nombre) + ' · ' +
+          F.N.format(sin) + ' personas sin cobertura">' +
+          F.esc(P.letra) +
+          '<span class="hab">' + F.N1.format(sin / 1000) + 'k</span>' +
+          '</button>';
+      }).join('');
+    }
+
+    function pintarMando() {
+      /* Misma razon que arriba: quince botones no son un mando, y agrupados
+         por radio el control dice de que va la pagina antes de tocarlo. */
+      var cerca = '', lejos = '';
+      for (var i = 0; i < D.indicadores.length; i++) {
+        var x = D.indicadores[i];
+        var o = '<option value="' + i + '"' + (i === indLal ? ' selected' : '') + '>' +
+          F.esc(x.nombre.replace('Gente con ', '')) + ' · ' +
+          F.N.format(x.radio_m) + ' m</option>';
+        if (x.radio_m <= 1000) cerca += o; else lejos += o;
+      }
+      mando.innerHTML =
+        '<select id="lal-sel" aria-label="Indicador de los paneles">' +
+        '<optgroup label="A pie, en el barrio · 400 a 800 m">' + cerca + '</optgroup>' +
+        '<optgroup label="A escala de ciudad · 2.000 a 3.000 m">' + lejos + '</optgroup>' +
+        '</select>';
+    }
+
+    function todo() { pintarMando(); pintarTira(); pintarPaneles(); }
+
+    tira.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button[data-plat]');
+      if (!b) return;
+      var n = b.getAttribute('data-plat');
+      var i = elegidas.indexOf(n);
+      if (i >= 0) elegidas.splice(i, 1);
+      else {
+        elegidas.push(n);
+        if (elegidas.length > 3) elegidas.shift();  // la cuarta suelta la primera
+      }
+      aMano = true;
+      pintarTira();
+      pintarPaneles();
+    });
+
+    mando.addEventListener('change', function (ev) {
+      if (!ev.target || ev.target.id !== 'lal-sel') return;
+      indLal = +ev.target.value;
+      /* Lo que el usuario eligio a mano se respeta: solo se rehace la
+         seleccion por defecto, que es «las tres peores» y cambia con el
+         indicador. Repintarle encima lo que acaba de marcar seria perderle
+         el trabajo. */
+      if (!aMano) elegidas = peores(3);
+      todo();
+    });
+
+    elegidas = peores(3);
+    todo();
+  })();
 
   cambiarVista();
   pintar();

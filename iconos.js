@@ -23,7 +23,9 @@ window.ICONOS = (function () {
     salud: '<path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/><path d="M12 11v5M9.5 13.5h5"/>',
 
     // --- las cuatro ventanas
-    visor: '<path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/>',
+    // NAWI es «ojo» en kichwa, asi que el icono es un ojo y no un mapa
+    // plegado. El nombre y el dibujo dicen lo mismo o no dicen nada.
+    nawi: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/>',
     chaski: '<path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4.5"/><path d="m14.5 9.5 3-3M6.5 17.5l3-3"/>',
     mapoteca: '<path d="M4 5h6l2 2h8v12H4z"/><path d="M8 11h8M8 15h5"/>',
     levantamiento: '<path d="M8 4h8v3H8z"/><path d="M6 6h2M16 6h2v14H6V6"/><path d="m9.5 13 2 2 3.5-3.5"/>',

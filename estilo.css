@@ -684,3 +684,82 @@ html{scroll-behavior:smooth}
 }
 .llevar .que strong{font-family:var(--ui); color:var(--gr-tinta)}
 .gr-btn--secundario:hover{background:var(--gr-azul-100)}
+
+
+/* ------------------------------------------ las plataformas, lado a lado */
+/* LA TIRA DE LETRAS ES EL CONTROL, y no un menú desplegable: las dieciocho
+   plataformas se llaman por letra, así que la lista de letras ya es el mapa
+   del cantón en una línea. Se ven todas a la vez, se ve cuál está marcada y
+   se salta de una a otra sin abrir nada. */
+.mando-lal{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; margin:14px 0 8px}
+.pastillas-lal{display:flex; flex-wrap:wrap; gap:6px}
+.pastillas-lal button{
+  font:inherit; font-size:.82rem; font-weight:600; cursor:pointer;
+  background:var(--gr-superficie); color:var(--gr-tinta-2);
+  border:1px solid var(--gr-linea); border-radius:999px; padding:5px 13px;
+}
+.pastillas-lal button[aria-pressed="true"]{
+  color:var(--gr-superficie); border-color:transparent; background:var(--tono,var(--gr-azul-500));
+}
+.lal-ayuda{margin:0; font-family:var(--prosa); font-size:.82rem; color:var(--gr-tinta-3)}
+
+.tira-lal{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px}
+.tira-lal button{
+  font-family:var(--dato); font-size:.86rem; font-weight:600; cursor:pointer;
+  min-width:38px; min-height:38px; padding:4px 6px;
+  background:var(--gr-superficie); color:var(--gr-tinta-2);
+  border:1px solid var(--gr-linea); border-radius:5px;
+}
+.tira-lal button:hover{border-color:var(--gr-azul-500)}
+.tira-lal button[aria-pressed="true"]{
+  background:var(--gr-azul-500); border-color:var(--gr-azul-500); color:#fff;
+}
+.tira-lal button .hab{display:block; font-size:.6rem; font-weight:400; opacity:.75}
+
+.comparables{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+@media (max-width:760px){.comparables{grid-template-columns:1fr}}
+.comparable{
+  background:var(--gr-superficie); border:1px solid var(--gr-linea);
+  border-radius:6px; padding:12px; min-width:0;
+}
+.comparable h3{
+  margin:0 0 8px; font-size:1rem; font-weight:700;
+  display:flex; align-items:baseline; gap:8px;
+}
+.comparable h3 .letra{
+  font-family:var(--dato); font-size:1.25rem; color:var(--tono,var(--gr-azul-500));
+}
+.comparable .lamina{width:100%; height:auto; display:block; border-radius:4px;
+  background:var(--gr-fondo)}
+.comparable .cifra{
+  margin:9px 0 0; font-family:var(--dato); font-size:1.5rem; font-weight:600;
+  color:var(--tono,var(--gr-azul-500)); line-height:1.1;
+}
+.comparable .bajo{margin:2px 0 0; font-family:var(--prosa); font-size:.84rem;
+  color:var(--gr-tinta-2)}
+.comparable .pie{
+  margin-top:9px; padding-top:8px; border-top:1px solid var(--gr-linea);
+  font-family:var(--dato); font-size:.72rem; color:var(--gr-tinta-3);
+}
+.comparable .mz-l{stroke:none}
+.comparable .plat-l{fill:none; stroke:var(--gr-linea-fuerte); stroke-width:1.1;
+  vector-effect:non-scaling-stroke}
+.comparable .plat-l.suya{stroke:var(--gr-tinta-2); stroke-width:2.2}
+
+
+/* Los mandos de indicador son listas desplegables desde que hay quince: una
+   fila de quince botones no es un mando, y el tono de serie se repetiria a
+   partir del noveno. */
+.mando-ind select, #lal-sel{
+  font:inherit; font-size:.86rem; font-weight:600; cursor:pointer;
+  background:var(--gr-superficie); color:var(--gr-tinta);
+  border:1px solid var(--gr-linea-fuerte); border-radius:6px;
+  padding:7px 10px; min-height:38px; max-width:100%;
+}
+.mando-ind select:focus-visible, #lal-sel:focus-visible{
+  outline:3px solid var(--gr-azul-500); outline-offset:2px;
+}
+.fuera-pantalla{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}

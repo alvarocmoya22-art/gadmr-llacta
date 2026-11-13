@@ -146,6 +146,13 @@ def main() -> None:
             (eq["tipo"].map(sin_tildes) == sin_tildes(n["uso"]))
             & (eq["tipologia"] == n["tipologia"])
         ]
+        # Seguridad trae dos filas zonales en la norma y el inventario las
+        # distingue por el campo "elemento"; sin este filtro aqui, las dos
+        # paginas medirian conjuntos distintos y la comprobacion de mas abajo
+        # —que es la que las obliga a cuadrar— saltaria.
+        if n.get("elemento_contiene"):
+            sel = sel[sel["elemento"].fillna("").str.contains(
+                n["elemento_contiene"], case=False, regex=False)]
         cob = sel.geometry.buffer(ind["radio_m"], resolution=SEGMENTOS).union_all()
         frac = (man.geometry.intersection(cob).area / man["_area"]).clip(upper=1.0).fillna(0.0)
         man[ind["clave"]] = frac
@@ -351,6 +358,9 @@ def main() -> None:
             (eq["tipo"].map(sin_tildes) == sin_tildes(n_["uso"]))
             & (eq["tipologia"] == n_["tipologia"])
         ]
+        if n_.get("elemento_contiene"):
+            sel = sel[sel["elemento"].fillna("").str.contains(
+                n_["elemento_contiene"], case=False, regex=False)]
         puntos[ind["clave"]] = [
             [round((g.x - x0) * escala), round((y0 - g.y) * escala)]
             for g in sel.geometry

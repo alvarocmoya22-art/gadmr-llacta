@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-08",
+  "generado": "2026-11-12",
   "poblacion_medida": 200179,
   "escalas": [
     {
@@ -38,6 +38,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 16,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 26,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 13,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 3463,
+              "valor_pct": 18.3,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 127,
+              "valor_pct": 0.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 13163,
+              "valor_pct": 69.6,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 26,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 7846,
+              "valor_pct": 41.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 18920,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 18916
@@ -67,6 +151,90 @@
             "proximidad_salud": {
               "alcanzados": 1128,
               "valor_pct": 6.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 26,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 4675,
+              "valor_pct": 25.5,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 995,
+              "valor_pct": 5.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 5622,
+              "valor_pct": 30.7,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 11,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 10654,
+              "valor_pct": 58.1,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 18337,
+              "valor_pct": 100.0,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -102,6 +270,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 16,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 15,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 4944,
+              "valor_pct": 31.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 274,
+              "valor_pct": 1.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 3996,
+              "valor_pct": 25.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 7,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 7642,
+              "valor_pct": 48.5,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 15763,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 15752
@@ -131,6 +383,90 @@
             "proximidad_salud": {
               "alcanzados": 2641,
               "valor_pct": 18.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 20,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 1423,
+              "valor_pct": 10.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 2499,
+              "valor_pct": 17.7,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 3267,
+              "valor_pct": 23.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 11378,
+              "valor_pct": 80.7,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 13468,
+              "valor_pct": 95.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 14092,
+              "valor_pct": 100.0,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -166,6 +502,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 13139,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 13139,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 13139,
+              "valor_pct": 100.0,
+              "equipamientos": 15,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 12102,
+              "valor_pct": 92.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 2848,
+              "valor_pct": 21.7,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 10882,
+              "valor_pct": 82.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 3882,
+              "valor_pct": 29.5,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 13139,
+              "valor_pct": 100.0,
+              "equipamientos": 9,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 13139,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 334,
+              "valor_pct": 2.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 13274
@@ -198,6 +618,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 1828,
+              "valor_pct": 14.4,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 6060,
+              "valor_pct": 47.6,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 5602,
+              "valor_pct": 44.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 6787,
+              "valor_pct": 53.3,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 12734,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 12738
@@ -228,6 +732,90 @@
               "alcanzados": 12073,
               "valor_pct": 98.7,
               "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 36,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 11,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 7433,
+              "valor_pct": 60.8,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 6746,
+              "valor_pct": 55.2,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 5908,
+              "valor_pct": 48.3,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 32,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 11103,
+              "valor_pct": 90.8,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 12230,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
               "propio": true,
               "lectura": "medido"
             }
@@ -262,6 +850,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 2663,
+              "valor_pct": 23.5,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 530,
+              "valor_pct": 4.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 11124,
+              "valor_pct": 98.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 1881,
+              "valor_pct": 16.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 11335,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 11334,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 11369
@@ -294,6 +966,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 9694,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 9694,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 9694,
+              "valor_pct": 100.0,
+              "equipamientos": 20,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 678,
+              "valor_pct": 7.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 7592,
+              "valor_pct": 78.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 4126,
+              "valor_pct": 42.6,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 9694,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 4208,
+              "valor_pct": 43.4,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 9694,
+              "valor_pct": 100.0,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 1602,
+              "valor_pct": 16.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 9192,
+              "valor_pct": 94.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 7568,
+              "valor_pct": 78.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 9718
@@ -326,6 +1082,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 14,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 8642,
+              "valor_pct": 95.3,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 5537,
+              "valor_pct": 61.1,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 2755,
+              "valor_pct": 30.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 4833,
+              "valor_pct": 53.3,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 9065,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 9452
@@ -355,6 +1195,90 @@
             "proximidad_salud": {
               "alcanzados": 171,
               "valor_pct": 2.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 7,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 2800,
+              "valor_pct": 33.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 8351,
+              "valor_pct": 98.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 5288,
+              "valor_pct": 62.3,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 2534,
+              "valor_pct": 29.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 8493,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 6334,
+              "valor_pct": 74.6,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -390,6 +1314,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 11,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 3299,
+              "valor_pct": 40.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 4975,
+              "valor_pct": 61.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 5510,
+              "valor_pct": 67.7,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 4685,
+              "valor_pct": 57.5,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 8143,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 8068
@@ -422,6 +1430,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 969,
+              "valor_pct": 13.9,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 2820,
+              "valor_pct": 40.3,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 3662,
+              "valor_pct": 52.4,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 6991,
+              "valor_pct": 100.0,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 6932,
+              "valor_pct": 99.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           },
           "poblacion_publicada": 6959
@@ -454,6 +1546,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 5147,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 5147,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 5147,
+              "valor_pct": 100.0,
+              "equipamientos": 12,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 2409,
+              "valor_pct": 46.8,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 4546,
+              "valor_pct": 88.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 914,
+              "valor_pct": 17.8,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 5147,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 647,
+              "valor_pct": 12.6,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 5147,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 4662,
+              "valor_pct": 90.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 797,
+              "valor_pct": 15.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 5171
@@ -486,6 +1662,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 3882,
+              "valor_pct": 100.0,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 1287,
+              "valor_pct": 33.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 3882,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 2530,
+              "valor_pct": 65.2,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 3357,
+              "valor_pct": 86.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 895,
+              "valor_pct": 23.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 2322,
+              "valor_pct": 59.8,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 3882,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 110,
+              "valor_pct": 2.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 1016,
+              "valor_pct": 26.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 3277,
+              "valor_pct": 84.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           },
           "poblacion_publicada": 3990
@@ -515,6 +1775,90 @@
             "proximidad_salud": {
               "alcanzados": 356,
               "valor_pct": 13.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 2678,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 2654,
+              "valor_pct": 99.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 2678,
+              "valor_pct": 100.0,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 97,
+              "valor_pct": 3.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 2678,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 334,
+              "valor_pct": 12.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 2524,
+              "valor_pct": 94.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 1186,
+              "valor_pct": 44.3,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 2678,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 477,
+              "valor_pct": 17.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 1946,
+              "valor_pct": 72.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 2628,
+              "valor_pct": 98.1,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -550,6 +1894,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 1524,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 1524,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 1524,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 904,
+              "valor_pct": 59.3,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 1505,
+              "valor_pct": 98.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 214,
+              "valor_pct": 14.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 1524,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 1524,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 693,
+              "valor_pct": 45.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           },
           "poblacion_publicada": 1552
@@ -579,6 +2007,90 @@
             "proximidad_salud": {
               "alcanzados": 1,
               "valor_pct": 2.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 1,
+              "valor_pct": 1.3,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 52,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 49,
+              "valor_pct": 94.5,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -625,6 +2137,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 63647,
+              "valor_pct": 100.0,
+              "equipamientos": 36,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 63647,
+              "valor_pct": 100.0,
+              "equipamientos": 35,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 63647,
+              "valor_pct": 100.0,
+              "equipamientos": 52,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 11980,
+              "valor_pct": 18.8,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 62450,
+              "valor_pct": 98.1,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 11897,
+              "valor_pct": 18.7,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 61134,
+              "valor_pct": 96.1,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 25942,
+              "valor_pct": 40.8,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 63647,
+              "valor_pct": 100.0,
+              "equipamientos": 63,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 10649,
+              "valor_pct": 16.7,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 62638,
+              "valor_pct": 98.4,
+              "equipamientos": 7,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 39998,
+              "valor_pct": 62.8,
+              "equipamientos": 5,
+              "propio": true,
+              "lectura": "medido"
             }
           }
         },
@@ -656,6 +2252,90 @@
               "equipamientos": 3,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 46215,
+              "valor_pct": 100.0,
+              "equipamientos": 39,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 46191,
+              "valor_pct": 99.9,
+              "equipamientos": 29,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 46215,
+              "valor_pct": 100.0,
+              "equipamientos": 69,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 21533,
+              "valor_pct": 46.6,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 42445,
+              "valor_pct": 91.8,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 19625,
+              "valor_pct": 42.5,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 46061,
+              "valor_pct": 99.7,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 15616,
+              "valor_pct": 33.8,
+              "equipamientos": 8,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 46215,
+              "valor_pct": 100.0,
+              "equipamientos": 24,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 22603,
+              "valor_pct": 48.9,
+              "equipamientos": 7,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 44494,
+              "valor_pct": 96.3,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 41981,
+              "valor_pct": 90.8,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
             }
           }
         },
@@ -684,6 +2364,90 @@
             "proximidad_salud": {
               "alcanzados": 3641,
               "valor_pct": 11.8,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 30833,
+              "valor_pct": 100.0,
+              "equipamientos": 13,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 30833,
+              "valor_pct": 100.0,
+              "equipamientos": 10,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 30833,
+              "valor_pct": 100.0,
+              "equipamientos": 45,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 6226,
+              "valor_pct": 20.2,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 28903,
+              "valor_pct": 93.7,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 6473,
+              "valor_pct": 21.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 30833,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 11502,
+              "valor_pct": 37.3,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 30833,
+              "valor_pct": 100.0,
+              "equipamientos": 20,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 14193,
+              "valor_pct": 46.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 30383,
+              "valor_pct": 98.5,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 28885,
+              "valor_pct": 93.7,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -718,6 +2482,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 30150,
+              "valor_pct": 100.0,
+              "equipamientos": 21,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 30127,
+              "valor_pct": 99.9,
+              "equipamientos": 7,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 30150,
+              "valor_pct": 100.0,
+              "equipamientos": 27,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 6724,
+              "valor_pct": 22.3,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 29978,
+              "valor_pct": 99.4,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 6828,
+              "valor_pct": 22.6,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 30069,
+              "valor_pct": 99.7,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 10192,
+              "valor_pct": 33.8,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 30150,
+              "valor_pct": 100.0,
+              "equipamientos": 23,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 15115,
+              "valor_pct": 50.1,
+              "equipamientos": 6,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 30069,
+              "valor_pct": 99.7,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 29972,
+              "valor_pct": 99.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           }
         },
@@ -749,6 +2597,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 7621,
+              "valor_pct": 86.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 6776,
+              "valor_pct": 77.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 8797,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 6459,
+              "valor_pct": 73.4,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 638,
+              "valor_pct": 7.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 7614,
+              "valor_pct": 86.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 8797,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 5634,
+              "valor_pct": 64.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 5207,
+              "valor_pct": 59.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           }
         },
@@ -780,6 +2712,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 3595,
+              "valor_pct": 57.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 4560,
+              "valor_pct": 72.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 6284,
+              "valor_pct": 100.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 2953,
+              "valor_pct": 47.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 1097,
+              "valor_pct": 17.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 6284,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 5629,
+              "valor_pct": 89.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         },
@@ -808,6 +2824,90 @@
             "proximidad_salud": {
               "alcanzados": 155,
               "valor_pct": 3.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 4316,
+              "valor_pct": 99.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 3766,
+              "valor_pct": 86.4,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 4357,
+              "valor_pct": 100.0,
+              "equipamientos": 3,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 399,
+              "valor_pct": 9.2,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 3436,
+              "valor_pct": 78.9,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 3165,
+              "valor_pct": 72.6,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_upc": {
+              "alcanzados": 43,
+              "valor_pct": 1.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 4357,
+              "valor_pct": 100.0,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 5,
+              "valor_pct": 0.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 2051,
+              "valor_pct": 47.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 3472,
+              "valor_pct": 79.7,
               "equipamientos": 0,
               "propio": false,
               "lectura": "medido"
@@ -842,6 +2942,90 @@
               "equipamientos": 1,
               "propio": true,
               "lectura": "medido"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 2861,
+              "valor_pct": 100.0,
+              "equipamientos": 2,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 289,
+              "valor_pct": 10.1,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 2861,
+              "valor_pct": 100.0,
+              "equipamientos": 9,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 2430,
+              "valor_pct": 84.9,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 2336,
+              "valor_pct": 81.7,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 2223,
+              "valor_pct": 77.7,
+              "equipamientos": 1,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 2861,
+              "valor_pct": 100.0,
+              "equipamientos": 4,
+              "propio": true,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 24,
+              "valor_pct": 0.9,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 2256,
+              "valor_pct": 78.9,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
             }
           }
         },
@@ -868,6 +3052,90 @@
               "lectura": "sin_inventario"
             },
             "proximidad_salud": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
               "alcanzados": 0,
               "valor_pct": 0.0,
               "equipamientos": 0,
@@ -904,6 +3172,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         },
@@ -930,6 +3282,90 @@
               "lectura": "sin_inventario"
             },
             "proximidad_salud": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
               "alcanzados": 0,
               "valor_pct": 0.0,
               "equipamientos": 0,
@@ -966,6 +3402,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         },
@@ -992,6 +3512,90 @@
               "lectura": "sin_inventario"
             },
             "proximidad_salud": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
               "alcanzados": 0,
               "valor_pct": 0.0,
               "equipamientos": 0,
@@ -1028,6 +3632,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         },
@@ -1054,6 +3742,90 @@
               "lectura": "sin_inventario"
             },
             "proximidad_salud": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
               "alcanzados": 0,
               "valor_pct": 0.0,
               "equipamientos": 0,
@@ -1090,6 +3862,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         },
@@ -1121,6 +3977,90 @@
               "equipamientos": 0,
               "propio": false,
               "lectura": "sin_inventario"
+            },
+            "proximidad_colegio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_hospital": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_deporte": {
+              "alcanzados": 15,
+              "valor_pct": 32.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_casa_comunal": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cultura": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_infantil": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_albergue": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_upc": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_transporte": {
+              "alcanzados": 11,
+              "valor_pct": 22.5,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "medido"
+            },
+            "proximidad_bateria": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_iglesia": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
+            },
+            "proximidad_cementerio": {
+              "alcanzados": 0,
+              "valor_pct": 0.0,
+              "equipamientos": 0,
+              "propio": false,
+              "lectura": "sin_inventario"
             }
           }
         }
@@ -1141,8 +4081,68 @@
     },
     {
       "clave": "proximidad_salud",
-      "nombre": "Gente con un servicio de salud cerca",
+      "nombre": "Gente con un subcentro de salud cerca",
       "radio_m": 800
+    },
+    {
+      "clave": "proximidad_colegio",
+      "nombre": "Gente con un colegio o instituto cerca",
+      "radio_m": 2000
+    },
+    {
+      "clave": "proximidad_hospital",
+      "nombre": "Gente con un centro de salud u hospital cerca",
+      "radio_m": 2000
+    },
+    {
+      "clave": "proximidad_deporte",
+      "nombre": "Gente con una cancha, coliseo o piscina cerca",
+      "radio_m": 3000
+    },
+    {
+      "clave": "proximidad_casa_comunal",
+      "nombre": "Gente con una casa comunal o biblioteca cerca",
+      "radio_m": 400
+    },
+    {
+      "clave": "proximidad_cultura",
+      "nombre": "Gente con un teatro, cine o museo cerca",
+      "radio_m": 2000
+    },
+    {
+      "clave": "proximidad_infantil",
+      "nombre": "Gente con un centro infantil o guardería cerca",
+      "radio_m": 400
+    },
+    {
+      "clave": "proximidad_albergue",
+      "nombre": "Gente con un centro de reposo o albergue cerca",
+      "radio_m": 2000
+    },
+    {
+      "clave": "proximidad_upc",
+      "nombre": "Gente con una UPC cerca",
+      "radio_m": 400
+    },
+    {
+      "clave": "proximidad_transporte",
+      "nombre": "Gente con un parqueadero o parada de buses cerca",
+      "radio_m": 3000
+    },
+    {
+      "clave": "proximidad_bateria",
+      "nombre": "Gente con una batería sanitaria o lavandería cerca",
+      "radio_m": 500
+    },
+    {
+      "clave": "proximidad_iglesia",
+      "nombre": "Gente con una iglesia o templo cerca",
+      "radio_m": 2000
+    },
+    {
+      "clave": "proximidad_cementerio",
+      "nombre": "Gente con un cementerio cerca",
+      "radio_m": 3000
     }
   ]
 }

@@ -74,26 +74,110 @@ VERSION_METODO = "1.0"
 # el metodo—, porque esas se leen en la portada: un rotulo que diga «area» en
 # una pagina del municipio es un error. Por eso la consola imprime «?» donde
 # hay tilde y el archivo de salida la lleva bien.
-INDICADORES = [
-    {
-        "clave": "proximidad_area_verde",
-        "nombre": "Gente con un área verde cerca",
-        "tipo": "Recreativo y Deporte",
-        "tipologia": "Barrial",
-    },
-    {
-        "clave": "proximidad_escuela",
-        "nombre": "Gente con una escuela cerca",
-        "tipo": "Educacion",
-        "tipologia": "Barrial",
-    },
-    {
-        "clave": "proximidad_salud",
-        "nombre": "Gente con un servicio de salud cerca",
-        "tipo": "Salud",
-        "tipologia": "Barrial",
-    },
+# ---------------------------------------------------------------------------
+# LA LISTA DE INDICADORES NO SE ESCRIBE AQUI: SALE DE LA NORMA.
+#
+# Antes este archivo traia tres indicadores a mano. Pero la tabla 3 del Codigo
+# Urbano fija radio a dieciseis pares uso + tipologia, y publicar tres era
+# elegir por el lector: el observatorio decidia que preguntas tenian respuesta.
+# Ahora se publica una por cada fila con radio, y lo que falta se dice.
+#
+# LO UNICO QUE SE ESCRIBE A MANO ES EL NOMBRE, y es a proposito: «Gente con un
+# area verde cerca» no se deduce de «Recreativo y Deporte / Barrial», y estos
+# rotulos se leen en la portada del observatorio. La clave tambien, porque tres
+# de ellas ya estan publicadas y cambiarlas romperia las paginas que las citan.
+#
+# Un par que la norma fije y que no este aqui se publica igual, con un nombre
+# armado a partir de la propia norma: se prefiere un rotulo feo a un indicador
+# que desaparece sin que nadie se entere.
+NOMBRES = {
+    ("Recreativo y Deporte", "Barrial"):
+        ("proximidad_area_verde", "Gente con un área verde cerca"),
+    ("Educacion", "Barrial"):
+        ("proximidad_escuela", "Gente con una escuela cerca"),
+    ("Salud", "Barrial"):
+        ("proximidad_salud", "Gente con un subcentro de salud cerca"),
+
+    ("Educacion", "Zonal"):
+        ("proximidad_colegio", "Gente con un colegio o instituto cerca"),
+    ("Salud", "Zonal"):
+        ("proximidad_hospital", "Gente con un centro de salud u hospital cerca"),
+    ("Cultural", "Barrial"):
+        ("proximidad_casa_comunal", "Gente con una casa comunal o biblioteca cerca"),
+    ("Cultural", "Zonal"):
+        ("proximidad_cultura", "Gente con un teatro, cine o museo cerca"),
+    ("Bienestar Social", "Barrial"):
+        ("proximidad_infantil", "Gente con un centro infantil o guardería cerca"),
+    ("Bienestar Social", "Zonal"):
+        ("proximidad_albergue", "Gente con un centro de reposo o albergue cerca"),
+    ("Recreativo y Deporte", "Zonal"):
+        ("proximidad_deporte", "Gente con una cancha, coliseo o piscina cerca"),
+    ("Religioso", "Zonal"):
+        ("proximidad_iglesia", "Gente con una iglesia o templo cerca"),
+    ("Seguridad", "Zonal"):
+        ("proximidad_upc", "Gente con una UPC cerca"),
+    ("Servicios Funerarios", "Barrial"):
+        ("proximidad_funeraria", "Gente con una funeraria o sala de velación cerca"),
+    ("Servicios Funerarios", "Zonal"):
+        ("proximidad_cementerio", "Gente con un cementerio cerca"),
+    ("Transporte", "Zonal"):
+        ("proximidad_transporte", "Gente con un parqueadero o parada de buses cerca"),
+    ("Infraestructura", "Barrial"):
+        ("proximidad_bateria", "Gente con una batería sanitaria o lavandería cerca"),
+}
+
+# EL ORDEN DE PORTADA. Los tres primeros son los que abren el observatorio y
+# los que ya estaban publicados; el resto va detras, por uso. El orden no es
+# cosmetico: decide cual se pinta al abrir y en que columna cae en la tabla.
+ORDEN = [
+    "proximidad_area_verde", "proximidad_escuela", "proximidad_salud",
+    "proximidad_colegio", "proximidad_hospital", "proximidad_deporte",
+    "proximidad_casa_comunal", "proximidad_cultura",
+    "proximidad_infantil", "proximidad_albergue",
+    "proximidad_upc", "proximidad_transporte", "proximidad_bateria",
+    "proximidad_iglesia", "proximidad_funeraria", "proximidad_cementerio",
 ]
+
+# POR DEBAJO DE ESTO EL INDICADOR MIDE EL INVENTARIO, NO LA CIUDAD.
+#
+# Con seis subcentros barriales para todo el canton, el 22,9 % que sale no dice
+# que Riobamba tenga mala cobertura de salud: dice que el nivel barrial casi no
+# esta levantado. La cifra se publica igual —esconderla seria peor—, pero
+# marcada, para que nadie la cite como si midiera el territorio.
+MINIMO_CREIBLE = 10
+
+# LA UNICA COLISION DE LA TABLA 3. Seguridad trae dos filas zonales: la UPC a
+# 400 m y la estacion de bomberos a 2.000. `leer_norma` se queda con la mas
+# exigente, pero entonces mediria los 22 equipamientos de seguridad —cuarteles
+# y centros de rehabilitacion incluidos— como si todos fueran UPC. El
+# inventario los distingue por `elemento`, asi que aqui se filtra.
+FILTRO_ELEMENTO = {
+    ("Seguridad", "Zonal"): "UPC",
+}
+
+
+def armar_indicadores(norma):
+    """Un indicador por cada fila de la norma que fije radio."""
+    sueltos = []
+    for (uso, tipologia) in norma:
+        clave, nombre = NOMBRES.get(
+            (uso, tipologia),
+            (
+                "proximidad_" + sin_tildes(uso).lower().replace(" ", "_")
+                + "_" + tipologia.lower(),
+                f"Gente con {uso.lower()} de nivel {tipologia.lower()} cerca",
+            ),
+        )
+        sueltos.append({
+            "clave": clave,
+            "nombre": nombre,
+            "tipo": uso,
+            "tipologia": tipologia,
+            "elemento_contiene": FILTRO_ELEMENTO.get((uso, tipologia)),
+        })
+    sueltos.sort(key=lambda i: (ORDEN.index(i["clave"]) if i["clave"] in ORDEN
+                                else len(ORDEN), i["clave"]))
+    return sueltos
 
 
 def log(m=""):
@@ -177,7 +261,7 @@ def main() -> None:
     log(f"  {'indicador':<38} {'radio':>6} {'equip':>6} {'alcanzados':>12} {'%':>7}")
     log(f"  {'-'*38} {'-'*6} {'-'*6} {'-'*12} {'-'*7}")
 
-    for ind in INDICADORES:
+    for ind in armar_indicadores(norma):
         nivel = norma.get((ind["tipo"], ind["tipologia"]))
         if not nivel:
             log(f"  {ind['nombre']}: la norma no fija radio para "
@@ -189,6 +273,9 @@ def main() -> None:
             (eq["tipo"].map(sin_tildes) == ind["tipo"])
             & (eq["tipologia"] == ind["tipologia"])
         ]
+        if ind.get("elemento_contiene"):
+            sel = sel[sel["elemento"].fillna("").str.contains(
+                ind["elemento_contiene"], case=False, regex=False)]
         if sel.empty:
             log(f"  {ind['nombre']}: ningun equipamiento de esa tipologia. NO se publica.")
             continue
@@ -212,7 +299,8 @@ def main() -> None:
         sirve = sel[sel["estado"].isin(["Bueno", "Regular"])]
         total_sirve, _, _ = alcanzados(sirve) if not sirve.empty else (0.0, 0, 0)
 
-        log(f"  {ind['nombre']:<38} {radio:>5} m {len(sel):>6} {round(total):>12,} {pct:>6.1f} %")
+        log(f"  {ind['nombre']:<44} {radio:>5} m {len(sel):>6} {round(total):>12,} {pct:>6.1f} %"
+            + ("  inventario corto" if len(sel) < MINIMO_CREIBLE else ""))
 
         salida.append({
             "clave": ind["clave"],
@@ -228,9 +316,16 @@ def main() -> None:
                 "uso": nivel["uso"],
                 "tipologia": nivel["tipologia"],
                 "actividades": nivel["actividades"],
+                # Viaja con el indicador para que escalas.py seleccione los
+                # mismos equipamientos y las dos cifras cuadren.
+                "elemento_contiene": ind.get("elemento_contiene"),
                 "cita": cita,
             },
             "equipamientos": int(len(sel)),
+            # Marcado, no escondido: con menos de diez el indicador mide el
+            # estado del inventario y no el del territorio, y quien lo cite
+            # tiene que saberlo.
+            "inventario_corto": bool(len(sel) < MINIMO_CREIBLE),
             "manzanas_cubiertas_enteras": enteras,
             "manzanas_cubiertas_a_medias": medias,
             "sin_contar_en_mal_estado": {
