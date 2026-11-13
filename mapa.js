@@ -707,13 +707,18 @@
         P = porNombre[nom] = {
           nombre: nom,
           letra: nom.replace(/^Plataforma\s*/i, ''),
-          manzanas: [], hab: 0, sin: [0, 0, 0],
+          manzanas: [], hab: 0,
+          // Una casilla por indicador, NO tres. Nacio con tres escritas a
+          // mano y al pasar a quince los doce ultimos sumaban sobre
+          // undefined: NaN en la cifra de cada panel, y de paso en el orden
+          // que elige las tres peores, que se ordena por este mismo numero.
+          sin: D.indicadores.map(function () { return 0; }),
           caja: [Infinity, Infinity, -Infinity, -Infinity]
         };
       }
       P.manzanas.push(mz);
       P.hab += mz.h;
-      for (var j = 0; j < 3; j++) P.sin[j] += mz.h * (100 - mz.p[j]) / 100;
+      for (var j = 0; j < P.sin.length; j++) P.sin[j] += mz.h * (100 - mz.p[j]) / 100;
       encajar(mz.d, P.caja);
     }
 
@@ -810,7 +815,21 @@
       }).join('');
 
       var metros = Math.round(lado * (M.m_por_unidad || 1));
-      pie.innerHTML = '<b>Figura 3</b> · El mismo indicador y el mismo encuadre: ' +
+      /* Hay indicadores que dentro del casco urbano no dejan a nadie fuera
+         —colegio, cancha y parqueadero rondan el 95 % del canton y lo que
+         falta cae en las parroquias rurales—. Entonces las dieciocho
+         plataformas empatan en cero y las «tres peores» salen por orden
+         alfabetico: correcto, pero leido sin aviso parece que la pagina se
+         rompio. Se dice. */
+      var techo = 0;
+      for (var z = 0; z < PLATS.length; z++) techo = Math.max(techo, PLATS[z].sin[indLal]);
+      var completa = techo < 0.5
+        ? '<b>Ninguna de las ' + PLATS.length + ' plataformas deja gente fuera de este ' +
+          'radio:</b> dentro del casco urbano la cobertura es completa, y lo que falta ' +
+          'en el cantón cae en las parroquias rurales. Por eso los tres paneles van a ' +
+          'cero y salen por orden alfabético. '
+        : '';
+      pie.innerHTML = completa + '<b>Figura 3</b> · El mismo indicador y el mismo encuadre: ' +
         F.N.format(metros) + ' m de lado en los ' + sel.length +
         ' paneles, para que el tamaño no mienta. Cada manzana pintada por ' +
         'cuántas de sus personas quedan fuera del radio (' +
