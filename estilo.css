@@ -496,38 +496,9 @@ a.ventana--3:hover{border-color:var(--gr-s7)}
 .gr-nota--aviso .cabeza{display:flex; align-items:center; gap:9px; margin-bottom:6px}
 .gr-nota--aviso .cabeza .ico{color:var(--gr-aviso)}
 
-/* Los tres paneles comparados: la misma ciudad, los tres indicadores, uno al
-   lado del otro. Es la única forma de ver de un vistazo que lo que a la
-   escuela le sobra a la salud le falta; alternando no se compara, se recuerda. */
-.paneles{display:grid; gap:14px; grid-template-columns:1fr}
-@media (min-width:720px){.paneles{grid-template-columns:repeat(3,1fr)}}
-.panel{
-  background:var(--gr-superficie); border:1px solid var(--gr-linea);
-  border-top:3px solid var(--acento); border-radius:6px; overflow:hidden;
-}
-.panel h3{
-  margin:0; padding:13px 14px 0; font-size:.92rem; font-weight:600;
-  display:flex; align-items:center; gap:9px; color:var(--gr-tinta);
-}
-.panel h3 .ico{color:var(--acento)}
-.panel svg.lamina{display:block; width:100%; height:auto; background:var(--gr-fondo)}
-.panel .pie-panel{
-  padding:11px 14px 13px; display:flex; align-items:baseline; gap:8px;
-  border-top:1px solid var(--gr-linea);
-}
-.panel .pie-panel b{
-  font-family:var(--dato); font-size:1.45rem; font-weight:600; color:var(--acento);
-  font-variant-numeric:tabular-nums; line-height:1; white-space:nowrap; flex:none;
-}
-.panel .pie-panel span{font-family:var(--dato); font-size:.74rem; color:var(--gr-tinta-3)}
-.panel--1{--acento:var(--gr-s1)}
-.panel--2{--acento:var(--gr-s2)}
-.panel--3{--acento:var(--gr-s3)}
+/* Las manzanas de una lámina van sin trazo: a este tamaño el contorno de cada
+   una se comería su propio relleno y la mancha dejaría de leerse. */
 .mz-l{stroke:none}
-.par-l{
-  fill:none; stroke:var(--gr-linea-fuerte); stroke-width:1;
-  vector-effect:non-scaling-stroke; opacity:.75;
-}
 
 /* La tabla, con la columna del indicador elegido resaltada en su tono. */
 th.viva{color:var(--acento-sel)!important; box-shadow:inset 0 -2px 0 var(--acento-sel)}

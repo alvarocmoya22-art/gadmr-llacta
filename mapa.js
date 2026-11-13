@@ -645,55 +645,6 @@
   });
 
   cambiarVista();
-  /* LOS TRES PANELES COMPARADOS.
-   *
-   * La misma ciudad, los tres indicadores, uno al lado del otro. Alternando
-   * con las pastillas no se compara: se recuerda, y mal. Puestos en fila se
-   * ve de un golpe que donde sobra escuela falta salud.
-   *
-   * Cada panel NO dibuja 3.756 trazos: junta los de cada escalón en un solo
-   * `path`. Son siete por panel en vez de 3.756, y para una lámina de 300 px
-   * sin interacción eso no quita nada y evita meter once mil nodos más en el
-   * documento.
-   */
-  function laminaMini(cual) {
-    var cubos = ['', '', '', '', '', '', ''];
-    for (var k = 0; k < M.manzanas.length; k++) {
-      cubos[tramo(M.manzanas[k].p[cual])] += M.manzanas[k].d;
-    }
-    var s = '<svg class="lamina" viewBox="' + M.viewBox.ciudad.join(' ') + '" ' +
-      'role="img" aria-label="' + F.esc(D.indicadores[cual].nombre) +
-      ', por manzana. La tabla de parroquias dice lo mismo en texto.">' +
-      '<defs><pattern id="sc' + cual + '" width="6" height="6" ' +
-        'patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
-        '<rect width="6" height="6" fill="var(--gr-nada)"/>' +
-        '<line x1="0" y1="0" x2="0" y2="6" stroke="var(--gr-fondo)" ' +
-        'stroke-width="2" opacity=".55"/></pattern></defs>';
-    for (var b = 0; b < cubos.length; b++) {
-      if (!cubos[b]) continue;
-      s += '<path class="mz-l" fill="' +
-        (b === 0 ? 'url(#sc' + cual + ')' : muestra(b, cual)) +
-        '" d="' + cubos[b] + '"/>';
-    }
-    for (var q = 0; q < M.limites.parroquias.length; q++) {
-      // Los paneles llevan siempre las parroquias: son la única escala que
-      // dibuja el cantón entero, y una miniatura necesita el contorno
-      // completo para que se reconozca de qué ciudad se habla.
-      s += '<path class="par-l" d="' + M.limites.parroquias[q].d + '"/>';
-    }
-    return s + '</svg>';
-  }
-
-  document.getElementById('paneles').innerHTML = D.indicadores.slice(0, 3).map(function (x, i) {
-    return '<article class="panel panel--' + (i + 1) + '">' +
-      '<h3>' + ICONOS.svg(ICONOS.deIndicador(x.clave), 19) +
-        F.esc(x.nombre.replace('Gente con ', '').replace(/^un /, '').replace(/^una /, '')) +
-        '</h3>' + laminaMini(i) +
-      '<p class="pie-panel"><b>' + F.N1.format(x.valor_pct) + ' %</b>' +
-        '<span>' + F.N.format(x.alcanzados) + ' de ' + F.N.format(x.denominador) +
-        ' hab · ' + F.N.format(x.radio_m) + ' m</span></p>' +
-      '</article>';
-  }).join('');
 
   /* ===================== LAS PLATAFORMAS, LADO A LADO =====================
    *
@@ -859,7 +810,7 @@
       }).join('');
 
       var metros = Math.round(lado * (M.m_por_unidad || 1));
-      pie.innerHTML = '<b>Figura 4</b> · El mismo indicador y el mismo encuadre: ' +
+      pie.innerHTML = '<b>Figura 3</b> · El mismo indicador y el mismo encuadre: ' +
         F.N.format(metros) + ' m de lado en los ' + sel.length +
         ' paneles, para que el tamaño no mienta. Cada manzana pintada por ' +
         'cuántas de sus personas quedan fuera del radio (' +
