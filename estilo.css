@@ -471,6 +471,17 @@ td .lectura{font-family:var(--dato); font-size:.78rem}
 .ind h3{display:flex; align-items:center; gap:11px}
 .ind .cifra b{color:var(--acento)}
 .ind .barra i{background:var(--acento)}
+/* Las tarjetas 4 a 15 no tenian acento y su caja de icono quedaba sin color
+   por descuido, no por decision: con --acento sin definir, el color-mix de
+   abajo no es valido y el navegador se salta la regla entera. Ahora el neutro
+   es el valor por defecto y los tres primeros lo pisan.
+
+   Y NO SE REPARTEN LAS OCHO SERIES ENTRE LOS QUINCE: a partir de la novena
+   habria que volver a empezar, y entonces dos indicadores distintos
+   compartirian tono en la misma pantalla. Los tres primeros llevan el suyo
+   porque ese mismo tono los nombra en el mapa, en la tabla y en los paneles;
+   los otros doce se distinguen por su icono, que para eso se dibujaron. */
+.ind{--acento:var(--gr-tinta-3)}
 .ind--1{--acento:var(--gr-s1)}
 .ind--2{--acento:var(--gr-s2)}
 .ind--3{--acento:var(--gr-s3)}
